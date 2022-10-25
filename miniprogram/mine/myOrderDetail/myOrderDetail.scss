@@ -1,0 +1,133 @@
+.orderDetail {
+  .orderType {
+    height: 255rpx;
+    font-size: 32rpx;
+    font-family: Source Han Sans CN;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+    background: url(https://staticfile.xlcwx.com/Top-up-MiniApp/order/detail.png);
+    padding-top: 60rpx;
+
+    .title {
+      margin: 0rpx 0rpx 0rpx 30rpx;
+
+      .thisIcon {
+        font-size: 32rpx !important;
+        margin-right: 12rpx;
+      }
+    }
+  }
+
+  .detail {
+    position: absolute;
+    top: 161rpx;
+    left: 30rpx;
+    right: 30rpx;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0rpx 1rpx 10rpx 0rpx rgba(87, 142, 241, 0.2);
+    border-radius: 10rpx;
+    padding: 30rpx;
+
+    .conts {
+      overflow: hidden;
+      background-color: #f8fafe;
+      display: flex;
+      margin-top: 20rpx;
+      height: 120rpx;
+
+
+      .img {
+        background-color: aquamarine;
+        width: 211rpx;
+        height: 120rpx;
+        border-radius: 6rpx;
+        margin-right: 20rpx;
+        overflow: hidden;
+        flex-shrink: 0;
+
+      }
+
+      .neirong {
+        overflow: hidden;
+        width: 450rpx;
+
+        .price {
+          margin-top: 29rpx;
+          font-size: 24rpx;
+          font-family: Source Han Sans CN;
+          font-weight: 400;
+          color: rgba(241, 88, 23, 1);
+        }
+
+      }
+
+
+    }
+
+    .contsInfo {
+      .list {
+        margin-top: 30rpx;
+        display: flex;
+        justify-content: space-between;
+        line-height: 24rpx;
+        font-size: 24rpx;
+        font-family: Source Han Sans CN;
+
+        .text {
+          font-weight: 300;
+          color: rgba(153, 153, 153, 1);
+        }
+
+        .textNum {
+          font-weight: 400;
+          color: rgba(102, 102, 102, 1);
+        }
+
+        .listPrice {
+          color: #333333 !important;
+        }
+      }
+
+    }
+
+    .totalPrice {
+      font-size: 24rpx;
+      font-family: Source Han Sans CN;
+      font-weight: 300;
+      color: rgba(241, 88, 23, 1);
+      text-align: right;
+      margin-top: 18rpx;
+
+      .totalPriceText {
+        color: rgba(153, 153, 153, 1);
+      }
+    }
+  }
+
+  .button {
+    position: absolute;
+    bottom: 50rpx;
+    margin: auto;
+    width: 400rpx;
+    height: 80rpx;
+    border-radius: 40rpx;
+    font-size: 28rpx;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    line-height: 80rpx;
+    left: 175rpx;
+    right: 175rpx;
+
+  }
+
+  .butSuccse {
+    background: linear-gradient(90deg, rgba(31, 150, 241, 1) 0%, rgba(98, 185, 251, 1) 100%);
+
+  }
+
+  .butNot {
+    background: linear-gradient(90deg, rgba(254, 119, 60, 1) 0%, rgba(255, 126, 0, 1) 100%);
+  }
+}

@@ -1,0 +1,22 @@
+<!-- index.wxml -->
+<wxs src="../../filter/DateFmt.wxs" module="DateFmt"></wxs>
+<wxs src="../../filter/SubString.wxs" module="SubString"></wxs>
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+      获取头像昵称
+    </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+  <view>{{ImgUrl}}</view>
+  <view>{{DateFmt.toFmt("2020-01-07T11:19:00+08:00","yyyy年MM月dd日 HH:mm")}}</view>
+  <view>{{SubString.setEllipsis(0,str,3)}}</view>
+  <text class="lg text-gray cuIcon-favorfill"></text>
+  <text class="iconfont iconcheck-circle"></text>
+</view>

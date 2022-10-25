@@ -1,0 +1,111 @@
+<view class="pannel">
+  <view class="bg"></view>
+  <view class="block">
+    <view class="userInfo">
+      <view class="pic">
+        <image src="{{userInfo.uPic}}" />
+      </view>
+      <view class="content">
+        <view class="name">{{userInfo.nickName}}</view>
+        <view class="tel">{{userInfo.tel}}</view>
+      </view>
+      <!-- <text class="icon lg cuIcon-right"></text> -->
+    </view>
+    <view class="section">
+      <navigator url="/mine/MyCourse/MyCourse" class="item">
+        <view class="left">
+          <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/mine/mine-icon1.png" />
+          我的课程
+        </view>
+        <view class="right">
+          <text class="icon lg cuIcon-right"></text>
+        </view>
+      </navigator>
+      <navigator url="/questionBank/index/index" class="item">
+        <view class="left">
+          <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/mine/mine-icon2.png" />
+          我的题库
+        </view>
+        <view class="right">
+          <text class="icon lg cuIcon-right"></text>
+        </view>
+      </navigator>
+      <navigator url="/mine/learnRecord/learnRecord" class="item">
+        <view class="left">
+          <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/mine/mine-icon3.png" />
+          观看记录
+        </view>
+        <view class="right">
+          <text class="icon lg cuIcon-right"></text>
+        </view>
+      </navigator>
+    </view>
+    <view class="section">
+      <navigator url="/mine/myCoupon/myCoupon" class="item">
+        <view class="left">
+          <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/mine/mine-icon4.png" />
+          优惠券
+        </view>
+        <view class="right">
+          <text class="icon lg cuIcon-right"></text>
+        </view>
+      </navigator>
+      <navigator url="/mine/myOrder/myOrder" class="item">
+        <view class="left">
+          <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/mine/mine-icon5.png" />
+          我的订单
+        </view>
+        <view class="right">
+          <text class="icon lg cuIcon-right"></text>
+        </view>
+      </navigator>
+      <!-- <view class="item" bindtap="myInvitation">
+        <view class="left">
+          <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/mine/mine-icon6.png" />
+          我的邀请
+        </view>
+        <view class="right">
+          <text class="icon lg cuIcon-right"></text>
+        </view>
+      </view> -->
+      <button class="item" open-type="share">
+        <view class="left">
+          <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/mine/mine-icon6.png" />
+          我的邀请
+        </view>
+        <view class="right">
+          <text class="icon lg cuIcon-right"></text>
+        </view>
+      </button>
+    </view>
+  </view>
+  <view class="cu-modal invitation {{ifShowInvitation?'show':''}}" bindtap="hideModal">
+    <view class=" cu-dialog" catchlongpress="longInvitation">
+      <view class="cu-bar">
+        <image class="carImg" src="{{InvitImg}}" />
+        <view class="text">长按保存到本地</view>
+        <view class="text">邀请好友一起学习</view>
+      </view>
+    </view>
+    <view class="carClose">关闭</view>
+  </view>
+  <view class="cu-modal bottom-modal {{ifShowBottom?'show':''}}" bindtap="hideModal">
+    <view class="cu-dialog">
+      <view class="modal-title">
+        <view class="close" bindtap="hideModal">
+          <text class="lg cuIcon-roundclose" />
+        </view>
+      </view>
+      <view class="modal-block">
+        <view class="imgBut" catchtap="previewMediaImg">
+          <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/order/weixin.png" />
+          <view>分享到微信</view>
+        </view>
+        <view class="imgBut" catchtap="saveImg">
+          <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/order/download.png" />
+          <view>保存到本地</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

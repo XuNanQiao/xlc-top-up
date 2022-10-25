@@ -1,0 +1,116 @@
+<wxs src="../../../filter/DateFmt.wxs" module="DateFmt"></wxs>
+<wxs src="../../../filter/SubString.wxs" module="SubString"></wxs>
+<view class="freeLiveIndex">
+  <view class="navList">
+    <view class="navItem {{navVal==0?'onThis':''}}" data-val="0" bindtap="navChoose">
+      近期直播
+    </view>
+    <view class="navItem {{navVal==1?'onThis':''}}" data-val="1" bindtap="navChoose">
+      往期回放
+    </view>
+  </view>
+  <view class="dayTimeBack" wx:if="{{navVal==0}}">
+    <view class="dayTime">
+      <view class="dayList">
+        <view class="dayItem" data-index="{{index}}" bindtap="dayChoose" wx:for="{{days}}" wx:key="index">
+          <view class="dayNum {{dayVal==index?'onThisDay':''}}">
+            {{item.dayNum}}
+          </view>
+          <view class="week">
+            {{index==0?'今': weeks[item.week]}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="hasNot" wx:if="{{!days[dayVal].ifHas}}">
+      <image class="hasNotImg" src="https://staticfile.xlcwx.com/Top-up-MiniApp/freeLive/noDataImg.png" />
+      <view class="hasNotText">
+        今天暂时没有直播课，先去看看别的课程吧~
+      </view>
+    </view>
+  </view>
+  <view class="liveList" wx:if="{{navVal==0}}">
+    <view class="liveGrounp" wx:for="{{freecourse}}" wx:key="index">
+      <view wx:if="{{days[dayVal].dayTime==(DateFmt.toFmt(item.day,'yyyy/MM/dd'))}}">
+        <view class="liveItem {{courses.isState==1||courses.isState==2?'':'displayNone'}}" wx:for="{{item.courses}}"
+          wx:for-item="courses" wx:key="index">
+          <view data-url="{{'/freeLive/pages/playerPublic/playerPublic?id='+courses.id}}" bindtap="goNext">
+            <view class="itemLeft">
+              <view class="typeTime">
+                <view class="type {{courses.isState==1?'':(courses.isState==2?'appointment':'playback')}} ">
+                  {{courses.isState==1?"直播":(courses.isState==2?"预约中":"回放")}}
+                </view>
+                <view class="time">
+                  {{DateFmt.toFmt(courses.updateTime,"yyyy.MM.dd HH:mm")}}
+                </view>
+              </view>
+              <view class="title">
+                {{courses.title}}
+              </view>
+              <view class="peopleNumber">
+                预约人数：{{courses.clicks}}人
+              </view>
+            </view>
+            <view class="itemRight">
+              <image class="itemImg" src="{{courses.mImg}}" />
+              <view class="state" wx:if="{{courses.isState==1}}">
+                <icon class="stateIcon  cuIcon-time" />
+                <view class="text">直播</view>
+              </view>
+              <view class="state" wx:elif="{{courses.isState==2}}">
+                <icon class="stateIcon  cuIcon-time" />
+                <view class="text"> 预约中</view>
+              </view>
+              <view class="state" wx:else>
+                <icon class="stateIcon cuIcon-video" />
+                <view class="text">回放</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="liveList" wx:if="{{navVal==1}}">
+    <view class="liveGrounp" wx:for="{{freecourse}}" wx:key="index">
+      <view class="liveItem {{courses.isState==1||courses.isState==2?'displayNone':''}}" wx:for="{{item.courses}}"
+        wx:for-item="courses" wx:key="index">
+        <view data-url="{{'/freeLive/pages/playerPublic/playerPublic?id='+courses.id}}" bindtap="goNext">
+          <view class="itemLeft">
+            <view class="typeTime">
+              <view class="type {{courses.isState==1?'':(courses.isState==2?'appointment':'playback')}} ">
+                {{courses.isState==1?"直播":(courses.isState==2?"预约中":"回放")}}
+              </view>
+              <view class="time">
+                {{DateFmt.toFmt(courses.updateTime,"yyyy.MM.dd HH:mm")}}
+              </view>
+            </view>
+            <view class="title">
+              {{courses.title}}
+            </view>
+            <view class="peopleNumber">
+              预约人数：{{courses.clicks}}人
+            </view>
+          </view>
+          <view class="itemRight">
+            <image class="itemImg" src="{{courses.mImg}}" />
+            <view class="state" wx:if="{{courses.isState==1}}">
+              <icon class="stateIcon  cuIcon-time" />
+              <view class="text">直播</view>
+            </view>
+            <view class="state" wx:if="{{courses.isState==2}}">
+              <icon class="stateIcon  cuIcon-time" />
+              <view class="text"> 预约中</view>
+            </view>
+            <view class="state" wx:else>
+              <icon class="stateIcon cuIcon-video" />
+              <view class="text">回放</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

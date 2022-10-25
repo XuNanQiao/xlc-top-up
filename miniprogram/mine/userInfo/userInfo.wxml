@@ -1,0 +1,55 @@
+<wxs src="../../filter/SubString.wxs" module="SubString"></wxs>
+
+<view class="pannel">
+    <view class="section">
+        <view class="info">
+            <view class="left">
+                <view class="pic">
+                    <image src="{{userInfo.uPic}}" />
+                </view>
+                <view class="info-text">设置头像</view>
+            </view>
+            <view class="right">
+                <text class="icon lg cuIcon-right" selectable="false" space="false" decode="false"></text>
+            </view>
+        </view>
+    </view>
+    <view class="section">
+        <navigator url="/mine/userInfo/nickName" class="item">
+            <view class="left">昵称</view>
+            <view class="right">
+                {{userInfo.nickName}}
+                <text class="icon lg cuIcon-right" selectable="false" space="false" decode="false"></text>
+            </view>
+        </navigator>
+        <view class="item" bindtap="sexChoose">
+            <view class="left">性别</view>
+            <view class="right">
+                <text>{{userInfo.sex}}</text>
+                <text class="icon lg cuIcon-right" selectable="false" space="false" decode="false"></text>
+            </view>
+        </view>
+    </view>
+    <view class="section">
+        <view class="item">
+            <view class="left">手机号</view>
+            <view class="right">
+                {{SubString.setEllipsis(0,userInfo.tel,3)}}****{{SubString.setEllipsis(7,userInfo.tel,11)}}
+                <text class="icon lg cuIcon-right" selectable="false" space="false" decode="false"></text>
+            </view>
+        </view>
+        <view class="item">
+            <view class="left">联系地址</view>
+            <view class="right">
+                {{userInfo.address==null||userInfo.address=='undefined'?'请输入现居住地':userInfo.address}}
+                <text class="icon lg cuIcon-right" selectable="false" space="false" decode="false"></text>
+            </view>
+        </view>
+        <navigator url="/mine/userInfo/changePassword" class="item">
+            <view class="left">密码修改</view>
+            <view class="right">
+                <text class="icon lg cuIcon-right" selectable="false" space="false" decode="false"></text>
+            </view>
+        </navigator>
+    </view>
+</view>

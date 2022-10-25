@@ -1,0 +1,71 @@
+<view class="pannel" wx:if="{{examPackage!=null}}">
+  <view class="img">
+    <image src="{{examPackage.img}}" />
+  </view>
+  <view class="content">
+    <view class="title">{{examPackage.title}}</view>
+    <view class="text">此说明仅当出现价格比较时有效，统缓存....</view>
+    <view class="price-block">
+      <view class="num-list">
+        <view class="item">
+          <view class="num-icon">
+            <i class="iconfont icon-shijuan"></i>
+          </view>
+          <text>共{{examPackage.exams.length}}套试卷</text>
+        </view>
+        <view class="item">
+          <view class="num-icon">
+            <image src="../../static/img/details-icon2.jpg" />
+          </view>
+          <text>{{examPackage.studentCount}}人已测</text>
+        </view>
+      </view>
+      <view class="price" wx:if="{{examPackage.price>0}}">￥{{examPackage.price}}</view>
+      <view class="price" wx:else>免费</view>
+      <view class="vouchers" wx:if="{{examPackage.price>0}}" bindtap="CouponsModalClick">
+        领券
+        <text class="lg cuIcon-right" />
+      </view>
+    </view>
+  </view>
+  <view class="line"></view>
+  <view class="block">
+    <view class="nav">
+      <view class="item {{isShow == 1?'on':''}}" bindtap="tabClick" data-index="1">试卷详情</view>
+      <view class="item {{isShow == 2?'on':''}}" bindtap="tabClick" data-index="2">试卷列表</view>
+    </view>
+    <view class="content {{isShow == 1?'isShow':''}}">
+      <view class="htmlDome">
+        <view wx:if="{{content==null}}" class="noData">暂无内容</view>
+        <rich-text v-else nodes="{{content}}" style="width: 750rpx;"></rich-text>
+      </view> 
+    </view>
+    <view class="buy" wx:if="{{examPackage.price>0&&!hasthis}}">
+      <view class="btn-buy" bindtap="order">立即购买</view>
+    </view>
+    <view class="content {{isShow == 2?'isShow':''}}">
+      <view class="list">
+        <view class="item" wx:for="{{examPackage.exams}}" wx:key="index" wx:for-item="exams">
+          <view class="item-title">{{exams.examTitle}}</view>
+          <view class="btn-list">
+            <view wx:if="{{!exams.hasMineRecord}}" class="btn-item" bindtap="startZd"
+              data-packageid="{{examPackage.id}}" data-examid="{{exams.examId}}" data-price="{{examPackage.price}}">
+              开始作答
+            </view>
+            <view wx:if="{{exams.hasMineRecord}}" class="btn-item" bindtap="startZd" data-packageid="{{examPackage.id}}"
+              data-examid="{{exams.examId}}" data-price="{{examPackage.price}}">
+              重新作答
+            </view>
+            <view wx:if="{{exams.hasMineRecord}}" class="btn-item" bindtap="checkAnswer"
+              data-packageid="{{examPackage.id}}" data-examid="{{exams.examId}}" data-price="{{examPackage.price}}">
+              查看报告
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <CouponsPro bindgetCouponsModal="getCouponsModal" proType="{{3}}" productId="{{examPackage.id}}"
+    modalName="{{CouponsModal}}" scopeName="{{examPackage.title}}" />
+</view>

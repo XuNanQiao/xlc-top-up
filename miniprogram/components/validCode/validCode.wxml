@@ -1,0 +1,4 @@
+<view class="ValidCode disabled-select" style="width:{{width}};height:{{height}}" bindtap="refreshCode">
+  <text wx:for="{{codeList}}" wx:key="index"
+    style="color: {{item.color}}; font-size:{{item.fontSize}}; padding: {{item.padding}}; transform:{{item.transform}}">{{item.code}}</text>
+</view>

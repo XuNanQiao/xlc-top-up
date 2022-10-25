@@ -1,0 +1,66 @@
+/**app.wxss**/
+@import "./static/colorui/main.wxss";
+@import "./static/colorui/icon.wxss";
+@import "./static/iconfont/iconfont.wxss";
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+.displayNone{
+  display: none;
+}
+.noData {
+  text-align: center;
+  color: #333;
+  font-size: 24rpx;
+  margin: 30rpx 0;
+}
+
+.tabValAllOn {
+  width: 62rpx;
+  margin: auto;
+  margin-top: -6rpx;
+  height: 6rpx;
+  content: "";
+  border-radius: 3rpx;
+  background-image: linear-gradient(to right, #0066b5, #00a2e9);
+  background-image: -webkit-linear-gradient(to right, #0066b5, #00a2e9);
+  background-image: -moz-linear-gradient(to right, #0066b5, #00a2e9);
+  background-image: -o-linear-gradient(to right, #0066b5, #00a2e9);
+  background-image: linear-gradient(to right, #0066b5, #00a2e9);
+}
+
+.tabValOn:after {
+  margin-left: -120rpx;
+  width: 62rpx;
+  margin-top: 74rpx;
+  height: 6rpx;
+  content: "";
+  position: absolute;
+  border-radius: 3rpx;
+  background-image: linear-gradient(to right, #0066b5, #00a2e9);
+  background-image: -webkit-linear-gradient(to right, #0066b5, #00a2e9);
+  background-image: -moz-linear-gradient(to right, #0066b5, #00a2e9);
+  background-image: -o-linear-gradient(to right, #0066b5, #00a2e9);
+  background-image: linear-gradient(to right, #0066b5, #00a2e9);
+}
+.ellipsis{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ellipsisLine{
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}

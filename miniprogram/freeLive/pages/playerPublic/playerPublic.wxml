@@ -1,0 +1,78 @@
+<wxs src="../../../filter/DateFmt.wxs" module="DateFmt"></wxs>
+<wxs src="../../../filter/SubString.wxs" module="SubString"></wxs>
+<view class="course_show">
+  <view class="player" wx:if="live.isLive" style="background:url({{live.img}});visibility:{{usebg?'visible':'hidden'}}">
+    <view wx:if="{{live.liveConfig!='' && (hasthis==true ||(live.price==0)) && suppressLogin && isPlay}}">
+      <studioVhall vallConfigUrl="{{live.liveConfig}}"></studioVhall>
+    </view>
+  </view>
+  <view class="intro">
+    <view class="left">
+      <view class="title">{{live.title}}</view>
+      <view class="time" wx:if="{{live.updateTime!=null}}">
+        开课时间：{{ DateFmt.toFmt(live.updateTime,'yyyy-MM-dd HH:mm')}} </view>
+      <view class="price">{{live.price>0?'￥'+live.price:'免费'}}</view>
+    </view>
+    <view class="right">
+      <view class="img-icon">
+        <image class="img" wx:if="{{ifLive==1}}"
+          src="https://staticfile.xlcwx.com/m-images/liveshow/images/live-icon.png" mode="aspectFill" />
+        <image class="img" wx:elif="{{ifLive==2}}"
+          src="https://staticfile.xlcwx.com/Top-up-MiniApp/freeLive/appointmentIng.png" mode="aspectFill" />
+        <image class="img" wx:else src="https://staticfile.xlcwx.com/Top-up-MiniApp/freeLive/playbackIng.png"
+          mode="aspectFill" />
+      </view>
+      <view class="state">
+        <view wx:if="{{ifLive==1}}">直播中</view>
+        <view wx:elif="{{ifLive==2}}">预约中</view>
+        <view wx:else>回放中</view>
+      </view>
+      <view class="number">{{100+live.appointmentCount}}人预约</view>
+      <view class="vouchers" wx:if="{{live.price>0}}" bindtap="CouponsModalClick">
+        领券
+        <text class="lg cuIcon-right" />
+      </view>
+    </view>
+  </view>
+  <view class="teacherInfo" wx:if="{{live.teacher}}">
+    <image class="avatar" src="{{live.teacher.imgSm}}" wx:if="{{live.teacher.imgSm!=null}}" />
+    <image class="avatar" src="https://staticfile.xlcwx.com/m-images/images/images/teacher.jpg" wx:else />
+
+    <view class="name">
+      主讲老师：{{live.teacher.name}}
+      <view class="text">{{live.teacher.content}}</view>
+    </view>
+    <view class="teacher_intro"
+      wx:if="{{live.teacher.content!=live.teacher.introduction && live.teacher.introduction!=null}}">
+      {{live.teacher.introduction}}</view>
+  </view>
+  <view class="bar">课程详情</view>
+  <view class="pannel">
+    <view class="liveIntro" wx:if="{{live.content}}">
+      <rich-text nodes="{{live.content}}"></rich-text>
+    </view>
+  </view>
+  <view class="state-btns">
+    <view class="invite item-btn" bindtap="invite(6,live.id)">
+      <view class="img">
+        <image src="https://staticfile.xlcwx.com/m-images/liveshow/images/invite-icon.png" />
+      </view>
+      <view class="text">邀请好友</view>
+      <button class="butContact" open-type="share"></button>
+    </view>
+    <view class="btn btn-buy" wx:if="{{live.price>0&&hasthis==false}}" data-id="{{live.id}}" bindtap="orderClick">立即购买
+    </view>
+
+    <view wx:elif="{{ifLive==2}}">
+      <view class="btn btn-subscription" wx:if="{{ hasAppoint == false}}" bindtap="appiont">我要预约</view>
+      <view class="btn btn-subscription" wx:elif=" {{hasAppoint == true}}"
+        data-url="{{'/freeLive/pages/studio/studio?id=' +live.id}}" bindtap="goNext">进入直播间</view>
+    </view>
+    <view class="btn btn-subscription" wx:elif="{{ifLive==1}}"
+      data-url="{{'/freeLive/pages/studio/studio?id=' +live.id}}" bindtap="goNext">进入直播间</view>
+    <view class="btn btn-buy" wx:elif="{{ifLive==3||ifLive==4||ifLive==5}}"
+      data-url="{{'/freeLive/pages/studio/studio?id=' +live.id}}" bindtap="goNext">观看回放</view>
+  </view>
+  <CouponsPro bindgetCouponsModal="getCouponsModal" proType="{{6}}" productId="{{live.id}}" modalName="{{CouponsModal}}"
+    scopeName="{{live.title}}" />
+</view>

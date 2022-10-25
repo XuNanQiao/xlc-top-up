@@ -1,0 +1,28 @@
+<view class="pannel">
+    <view class="item" wx:if="{{courseList}}" wx:for="{{courseList}}" wx:key="index">
+        <view class="line"></view>
+        <view class="img">
+            <image src="{{item.img}}" />
+        </view>
+        <view class="content">
+            <view class="title">{{item.title}}</view>
+            <view class="price-block">
+                <view class="current fl" wx:if="{{item.price && item.price!=0}}">￥{{item.price}}</view>
+                <view class="current fl" wx:else>免费</view>
+                <view class="odd-price fl" wx:if="{{item.olderPrice}}">￥{{item.olderPrice}}</view>
+            </view>
+            <view class="number">
+                <view class="num-item fl">共{{item.sectionCount}}讲</view>
+                <view class="num-item fl">{{item.clicks}}人已学</view>
+            </view>
+        </view>
+        <view data-tags="{{item.tags[0]}}" data-id="{{item.id}}" bindtap="goNext" class="item-btn">进入学习</view>
+    </view>
+    <view class="isNull" wx:if="{{courseList.length <= 0}}">
+        <view class="isNull-img">
+            <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/freeLive/noDataImg.png" />
+        </view>
+        <view class="isNull-text">你暂时还没有添加课程哦，快去添加课程吧~</view>
+        <navigator url="/course/pages/index/index" class="isNull-btn">去选择课程</navigator>
+    </view>
+</view>

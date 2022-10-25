@@ -1,0 +1,73 @@
+page {
+    height: 100%;
+    background-color: #F7F7F7;
+}
+
+.pannel {
+    padding-top: 10rpx;
+
+    .section {
+        background-color: #fff;
+        margin-bottom: 20rpx;
+
+        .info {
+            padding-left: 34rpx;
+            padding-right: 40rpx;
+            height: 150rpx;
+            line-height: 150rpx;
+            font-size: 30rpx;
+            overflow: hidden;
+
+            .left{
+                float: left;
+                .pic {
+                    width: 106rpx;
+                    height: 106rpx;
+                    margin-right: 26rpx;
+                    float: left;
+                    margin-top: 22rpx;
+                    border-radius: 106rpx;
+                    overflow: hidden;
+                    image {
+                        width: 106rpx;
+                        height: 106rpx;
+                    }
+    
+                }
+    
+                .info-text {
+                    color: #999999;
+                    font-size: 26rpx;
+                    float: left;
+                }
+            }
+            .right{
+                float: right;
+                color: #999999;
+            }
+        }
+
+        .item {
+            border-bottom: 2rpx solid #F7F7F7;
+            padding-left: 50rpx;
+            padding-right: 40rpx;
+            font-size: 30rpx;
+            line-height: 100rpx;
+            overflow: hidden;
+
+            .left {
+                color: #333333;
+                float: left;
+            }
+
+            .right {
+                float: right;
+                color: #999999;
+
+                .icon {
+                    margin-left: 15rpx;
+                }
+            }
+        }
+    }
+}

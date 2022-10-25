@@ -1,0 +1,37 @@
+<!--freeLive/pages/index/index.wxml-->
+<view class="optimizationIndex">
+  <view class="search">
+    <icon class="searchIcon cuIcon-search" />
+    <input value="{{searchVal}}" confirm-type='search' class="searchInput" type="text" bindinput="setSearchVal" bindconfirm="sendMsgTap"
+      placeholder="请输入课程名称" />
+  </view>
+  <view class="kcList">
+    <view data-id="{{null}}" bindtap="kcChoose" class="kcItem {{kcId==null?'onItem':''}}">
+      精选
+    </view>
+    <view class="kcItem {{kcId==item.id?'onItem':''}}" data-id="{{item.id}}" wx:for="{{courseKeChengsList}}"
+      wx:key="index" bindtap="kcChoose">
+      {{item.name}}
+    </view>
+  </view>
+  <view class="optimization" wx:if="{{VideosProfessionList.length>0}}">
+    <view class="optimizationList">
+      <view class="optimizationItem" data-type="{{item.type}}" data-id="{{item.id}}" bindtap="goNext" wx:for="{{VideosProfessionList}}" wx:key="index">
+        <image class="optimizationItemImg" src="{{item.img}}" />
+        <view class="title ellipsis"> {{item.title}}</view>
+        <view class="typePrice">
+          <view class="type {{item.type==1?'live':'noLive'}}">
+            {{item.type==1?"直播":"点播"}}
+          </view>
+          <view>
+            <view class="oldPrice" wx:if="{{item.oldPrice}}">
+              {{item.oldPrice}}
+            </view>
+            <view class="price">
+              {{item.price>0?"￥"+item.price:"免费"}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

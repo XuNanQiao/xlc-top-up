@@ -1,0 +1,15 @@
+<view class="activeIndex">
+  <view class="activityBox">
+    <view wx:if="{{activeList.length == 0 }}" class="noData">暂无数据</view>
+    <view class="activity">
+      <view class="carBox" wx:for="{{activeList}}" wx:key="index" data-url="{{'/active/pages/detail/detail?url='+item.url}}" bindtap="goNext">
+        <image class="activityImg" src="{{item.img}}" mode="aspectFill" />
+        <view class="introduce">
+          <view class="name">新里程</view>
+          <view class="title">{{item.title}}</view>
+          <view class="tips ellipsisLine">{{item.summary}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

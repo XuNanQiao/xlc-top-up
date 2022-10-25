@@ -1,0 +1,28 @@
+page {
+    height: 100%;
+    background-color: #fff;
+}
+
+.nickName {
+    padding: 20rpx 30rpx;
+
+    .inputBox {
+        border-bottom: 1rpx solid #eee;
+        height: 75rpx;
+        line-height: 75rpx;
+    }
+
+    .Determine {
+        width: 360rpx;
+        height: 70rpx;
+        background: linear-gradient(90deg,
+                rgba(31, 150, 241, 1) 0%,
+                rgba(98, 185, 251, 1) 100%);
+        border-radius: 35rpx;
+        font-size: 26rpx;
+        line-height: 70rpx;
+        text-align: center;
+        margin: 79rpx auto 0;
+        color: rgba(255, 255, 255, 1);
+    }
+}

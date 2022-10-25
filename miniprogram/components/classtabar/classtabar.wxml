@@ -1,0 +1,17 @@
+<view class="state-btns">
+  <view class="invite item-btn"  bindtap="invite">
+    <view class="img">
+      <image src="https://staticfile.xlcwx.com/m-images/liveshow/images/invite-icon.png" />
+    </view>
+    <view class="text">邀请好友</view>
+    <button class="butContact" open-type="share"></button>
+  </view>
+  <view class="item-btn">
+    <view class="img">
+      <text class="cuIcon-service" />
+    </view>
+    <view class="text">客服</view>
+    <button class="butContact" open-type="contact" bindcontact="handleContact"></button>
+  </view>
+  <view wx:if="{{!hasthis&&price>0}}" class="btn btn-buy" bindtap="order">立即购买</view>
+</view>

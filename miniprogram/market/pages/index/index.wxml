@@ -1,0 +1,73 @@
+<!--preferential/pages/index/index.wxml-->
+
+<wxs src="../../../filter/DateFmt.wxs" module="DateFmt"></wxs>
+<wxs src="../../../filter/SubString.wxs" module="SubString"></wxs>
+<view class="preferentialIndex">
+  <view class="nav">
+    <view class="item" data-val="0" bindtap="tapClick">
+      拼着学
+      <view class="{{tapChoose==0?'tapOn':''}}"></view>
+    </view>
+    <view class="item" data-val="1" bindtap="tapClick">
+      免费学
+      <view class="{{tapChoose==1?'tapOn':''}}"></view>
+    </view>
+  </view>
+  <view wx:if="{{tapChoose==0}}">
+    <view wx:if="{{pinTuanList.length==0}}" class="noData">暂无数据</view>
+    <view class="CarBoxs" wx:for="{{pinTuanList}}" wx:key="index">
+      <view class="carBoxlist" data-id="{{item.id}}" bindtap="goGroupBooking">
+        <view class="endTimeDown">
+          还剩:
+          <view class="timeBox" wx:for="{{item.endTimeDown}}" wx:for-item="itemEndTimeDown" wx:key="index">
+            <view class="time">
+              {{itemEndTimeDown>9?itemEndTimeDown:'0'+itemEndTimeDown}}
+            </view>
+            <view class="fenGe" wx:if="{{index!=item.endTimeDown.length-1}}">
+              ：
+            </view>
+          </view>
+
+        </view>
+        <view class="carContent">
+          <image class="carImg" src="{{item.imageSrc}}" />
+          <view class="datile">
+            <view class="title ellipsis">{{item.name }}</view>
+            <view class="originalPrice">{{item.type}}</view>
+            <view class="last">
+              <view class="priceName">
+                拼团价格：
+                <text class="price">¥{{item.memberPrice?item.memberPrice:'0'}}</text>
+              </view>
+              <view class="oldPrice">¥{{item.price?item.price:'0'}}</view>
+              <view class="rightBut">发起拼团</view>
+            </view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{tapChoose==1}}">
+    <view wx:if="{{helpingHandList.length==0}}" class="noData">暂无数据</view>
+    <view class="CarBoxs" wx:for="{{helpingHandList}}" wx:key="index">
+      <view class="carBoxlist" data-id="{{item.powerAssist.id}}" bindtap="goHelpingHand" >
+        <view class="carContent">
+          <image class="carImg" src="{{item.powerAssist.iconUrl}}" />
+          <view class="datile">
+            <view class="title ellipsis">{{item.powerAssist.title}}</view>
+            <view class="originalPrice">{{itemType[item.powerAssist.productType]}}</view>
+            <view class="last">
+              <view class="priceName">
+                价格：
+                <text class="price">¥{{item.price?item.price:0}}</text>
+              </view>
+              <view class="rightBut">发起助力
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

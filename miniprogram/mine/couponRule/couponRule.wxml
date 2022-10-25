@@ -1,0 +1,108 @@
+<!--mine/couponRule/couponRule.wxml-->
+<wxs src="../../filter/DateFmt.wxs" module="DateFmt"></wxs>
+
+<view class="use">
+  <view wx:if="{{coupons.marketingCoupons.type!=3}}">
+    <view class="Carlist">
+      <view class="CarListContent">
+        <view class="money">
+          <view class="number">
+            <text class="moneyLog">￥</text>
+            {{coupons.marketingCoupons.preferentialAmount}}
+          </view>
+          <view class="moneyType" wx:if="{{coupons.marketingCoupons.type == 2}}">满减券</view>
+          <view class="moneyType" wx:if="{{coupons.marketingCoupons.type == 1}}">无门槛券</view>
+        </view>
+
+        <view class="contentTitle">
+          <view class="title">{{coupons.marketingCoupons.name}}</view>
+          <view class="time" wx:if="{{coupons.remainDays==1}}">
+            今天{{DateFmt.toFmt(coupons.marketingCoupons.endTime,'HH:mm')   }}到期</view>
+          <view class="time" wx:elif="{{coupons.remainDays==2}}">
+            明天{{DateFmt.toFmt(coupons.marketingCoupons.endTime,'HH:mm')}}到期</view>
+          <view class="time" wx:elif="{{coupons.remainDays==3}}">还剩{{coupons.remainDays}}天到期</view>
+          <view class="time" style="color:#878D9D" wx:else>
+            {{DateFmt.toFmt(coupons.marketingCoupons.endTime,'yyyy.MM.dd HH:mm')}}到期</view>
+        </view>
+        <!--   <view class="contentBut" bindtap="goNext">
+        立即使用
+        </view>-->
+      </view>
+      <view class="box"></view>
+      <view class="boxRight"></view>
+      <view class="CarListTip">
+        <view wx:if="{{coupons.marketingCoupons.type == 1}}">
+          <view class="tipBut" wx:if="{{coupons.marketingCoupons.scopeType == 2}}" bindtap="PutMarketCode">立即使用</view>
+          <view class="tipBut" wx:else bindtap="PutMarketCodeToAll">立即使用</view>
+          <!-- 指定 -->
+          <view wx:if="{{coupons.marketingCoupons.scopeType == 2}}">仅适用于{{coupons.scopeName}}商品使用！</view>
+          <!-- 通用 -->
+          <view wx:else>适用于全部商品！</view>
+        </view>
+        <view wx:if="{{coupons.marketingCoupons.type == 2}}">
+          <view class="tipBut" bindtap="PutMarketCodeToAll">立即使用</view>
+          <view>满{{coupons.marketingCoupons.limitFullPrice}}元减{{coupons.marketingCoupons.preferentialAmount}}元</view>
+        </view>
+      </view>
+    </view>
+    <view class="information">
+      <view class="title">使用须知</view>
+      <view class="text">
+        券有效期：{{ DateFmt.toFmt(coupons.marketingCoupons.startTime,'yyyy.MM.dd')}}-{{DateFmt.toFmt(coupons.marketingCoupons.endTime,'yyyy.MM.dd')}}
+      </view>
+      <view class="text" wx:if="coupons.marketingCoupons.type == 2">使用条件：满¥{{coupons.marketingCoupons.limitFullPrice}}可用
+      </view>
+      <view class="text">限制团购使用</view>
+      <view class="text">相关问题，详情请咨询客服，以反馈为准</view>
+    </view>
+    <view class="information">
+      <view class="title">注意事项</view>
+      <view class="text">下单后在优惠券中手动选择</view>
+      <view class="text">优惠券每次只能使用一张</view>
+      <view class="text">不找零不兑换</view>
+    </view>
+  </view>
+  <view wx:else>
+    <view class="Carlist MarketCode">
+      <view class="CarListContent">
+        <view class="Content-img">
+          <image
+            src="https://staticfile.xlcwx.com/userfiles/202007/0563ee7c7e234234c823ea2519671b97e20200723155316776.png" />
+          <text>兑换券</text>
+        </view>
+
+        <view class="contentTitle">
+          <view class="title">{{coupons.marketingCoupons.name}}</view>
+          <view class="time">
+            {{coupons.marketingCoupons.startTime | format('YYYY.MM.DD')}}-{{coupons.marketingCoupons.endTime | format('YYYY.MM.DD')}}
+          </view>
+        </view>
+        <!--   <view class="contentBut" bindtap="goNext">
+        立即使用
+        </view>-->
+      </view>
+      <view class="box"></view>
+      <view class="boxRight"></view>
+      <view class="CarListTip">
+        <view class="tipBut" bindtap="PutMarketCode()">前去使用</view>
+        <view>适用于{{coupons.scopeName}}</view>
+      </view>
+    </view>
+    <view class="information">
+      <view class="title">使用须知</view>
+      <view class="text">
+        券有效期：{{coupons.marketingCoupons.startTime | format('YYYY/MM/DD')}}-{{coupons.marketingCoupons.endTime | format('YYYY/MM/DD')}}
+      </view>
+      <view class="text" wx:if="coupons.marketingCoupons.type == 2">使用条件：满¥{{coupons.marketingCoupons.limitFullPrice}}可用
+      </view>
+      <view class="text">兑换券不支持退券、换券、转售。</view>
+      <view class="text">相关问题，详情请咨询客服，以反馈为准</view>
+    </view>
+    <view class="information">
+      <view class="title">注意事项</view>
+      <view class="text">下单后在兑换券中选择</view>
+      <view class="text">兑换券每次只能使用一张，一经使用，立即作废，不可退回。</view>
+      <view class="text">兑换成功后，到【我的-我的课程】页面即可看到。</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,31 @@
+<!--course/video/play/play.wxml-->
+<!--course/video/introduction/introduction.wxml-->
+<view class="classIntro" wx:if="{{course!=null}}">
+  <view id="player" class="palyBack" style="background:url({{course.img}});visibility:{{usebg?'visible':'hidden'}}">
+    <studioVhall wx:if="{{course.trialVideoConfig!=null}}" vallConfigUrl="{{course.trialVideoConfig}}"
+      nickName="{{userInfo.nickName}}"></studioVhall>
+  </view>
+  <view class="pannel padding bg-white text-sm">
+    <view class="videoList padding-lr-sm text-grey">
+      <view class="content-title padding-tb-sm solids-bottom" wx:for="{{course.videoGroups}}" wx:key="index">
+        <view class="chapter text-df text-black" bindtap="openChapter" data-id="{{item.id}}">
+          <text class="cuIcon-sort margin-right-xs"></text>
+          {{item.title}}
+          <text class="fr {{uhide==item.id?'cuIcon-fold':'cuIcon-unfold'}}"></text>
+        </view>
+        <view class="ilist padding-lr-sm" wx:if="{{uhide==item.id}}">
+          <view class="ilist-item" wx:for-item="section" wx:for="{{item.videos}}" wx:key="index">
+            <view class="title" data-id="{{section.id}}" bindtap="play">
+              <text class="cuIcon-playfill"></text>
+              {{section.title}}
+            </view>
+            <view class="butList">
+              <!-- <view bindtap="getHomeWork" data-examid="{{section.id}}" class="butList-item">随堂测试</view> -->
+              <view class="butList-item" bindtap="download" data-id="{{section.id}}">随堂资料</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

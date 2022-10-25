@@ -1,0 +1,61 @@
+<!-- pages/answer/index.wxml -->
+<view class="answer">
+  <view class="answerTop">
+    <view class="answerback"></view>
+    <view class="userQuestion">
+      <view class="userInfo">
+        <image class="userPic" src="{{userInfo.uPic}}" />
+        <view class="user">
+          <view class="userName">Hi, {{userInfo.nickName}}</view>
+          <view class="Tips" bindtap="openClick">猜你想问</view>
+        </view>
+      </view>
+      <view wx:if="{{!ifOpen}}" class="openClick" bindtap="openClick">
+        <text class=" " />
+        展开
+      </view>
+      <view wx:if="{{ifOpen}}" class="question">
+        <view class="tabLIst">
+          <view class="tabItem {{TabCur==0?'tabValOn':''}}" data-index="{{0}}" bindtap="tabSelect">
+            报考类
+          </view>
+          <view class="tabItem {{TabCur==1?'tabValOn':''}}" data-index="{{1}}" bindtap="tabSelect">
+            课程类
+          </view>
+        </view>
+        <view class="questionList">
+          <view class="questionItem ellipsis" wx:for="{{TabCur==0?examList[questionVal].order:curriculumList[questionVal].order}}" wx:key="index" data-index="{{index}}" bindtap="thisQuestion">
+            {{item.question}}
+          </view>
+        </view>
+        <view class="switch" bindtap="openClick">
+          <text class="cuIcon-fold" />
+          收起
+        </view>
+        <!-- <view class="switch" bindtap="switch">
+          <text class="iconfont iconxiajicaidan" />
+          换一换
+        </view> -->
+      </view>
+    </view>
+  </view>
+  <view class="answerList {{!ifOpen?'answerListClose':''}}">
+    <view class="answerItem" wx:for="{{mineFeedbackList}}" wx:key="index">
+      <view id="{{index==(mineFeedbackList.length-1)?'last':''}}" class="student">
+        <image class="ListImg" src="{{userInfo.uPic}}" />
+        <view class="text">{{item.content}}</view>
+      </view>
+      <view class="teacher" wx:if="{{item.list}}">
+        <view class="teacher-view" wx:for="{{ item.list }}" wx:key="index" wx:for-item="value">
+          <image class="ListImg" src="https://staticfile.xlcwx.com/Top-up-MiniApp/answer/kefu.png" />
+          <view class="text">{{value.respond}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="sendVal">
+    <text class="sendImg iconfont icontupian" />
+    <input class="sendInput" value="{{sendVal}}" confirm-type='send' type="text" bindfocus="bindfocus" bindinput="setSearchVal" bindconfirm="sendMsgTap" />
+    <view class="sendBut" bindtap="sendMsgTap">发送</view>
+  </view>
+</view>

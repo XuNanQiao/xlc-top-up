@@ -1,0 +1,33 @@
+toFmt = function (dt, formate) {
+    var date = getDate(dt);
+    ;
+    var result = formate;
+    result = result.replace("yyyy", date.getFullYear().toString());
+    result = result.replace("yy", (date.getFullYear() - 1900).toString());
+    result = result.replace("MM", padLeft((date.getMonth() + 1), 2));
+    result = result.replace("M", (date.getMonth() + 1).toString());
+    result = result.replace("dd", padLeft(date.getDate(), 2));
+    result = result.replace("d", (date.getDate()).toString());
+    result = result.replace("HH", padLeft(date.getHours(), 2));
+    result = result.replace("h", (date.getHours()).toString());
+    result = result.replace("mm", padLeft(date.getMinutes(), 2));
+    result = result.replace("m", (date.getMinutes()).toString());
+    result = result.replace("ss", padLeft(date.getSeconds(), 2));
+    result = result.replace("s", (date.getSeconds()).toString());
+    result = result.replace("fff",padLeft(date.getDate(), 3));
+    result = result.replace("ff", padLeft(date.getDate(), 2));
+    result = result.replace("f", (date.getMilliseconds()).toString());
+    return result;
+};
+padLeft = function (n, length, char) {
+    var len = length - n.toString().length + 1;
+    if (len < 0) {
+        len = 0;
+    }
+    var arr = [];
+    for(var i = 0; i< len;i++){
+        arr.push("")
+    }
+    return arr.join(char || "0") + n;
+};
+module.exports.toFmt = toFmt;

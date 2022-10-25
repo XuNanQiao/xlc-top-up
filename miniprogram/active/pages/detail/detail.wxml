@@ -1,0 +1,2 @@
+<!--active/pages/detail/detail.wxml-->
+<web-view src="{{yourUrl}}"></web-view>

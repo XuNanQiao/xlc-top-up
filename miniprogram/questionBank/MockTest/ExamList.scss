@@ -1,0 +1,89 @@
+page {
+    background-color: #fff;
+    height: 100%;
+}
+
+.pannel {
+    .title {
+        color: #666666;
+        font-size: 24rpx;
+        padding: 0 30rpx;
+        margin-top: 40rpx;
+        margin-bottom: 16rpx;
+    }
+
+    .list {
+        .item {
+            height: 90rpx;
+            width: 690rpx;
+            margin: auto;
+            border-bottom: 1rpx solid #EEEEEE;
+            overflow: hidden;
+            padding: 20rpx 0;
+
+            .img {
+                width: 50rpx;
+                height: 50rpx;
+                margin-right: 20rpx;
+
+                image {
+                    width: 50rpx;
+                    height: 50rpx;
+                }
+            }
+
+            .text {
+                font-size: 28rpx;
+                font-family: Source Han Sans CN;
+                font-weight: 500;
+                color: rgba(34, 34, 34, 1);
+                line-height: 42rpx;
+                width: 565rpx;
+            }
+
+            .icon {
+                color: #A7A7A7;
+                font-size: 30rpx;
+                font-family: Source Han Sans CN;
+                font-weight: 500;
+                line-height: 42rpx;
+            }
+        }
+    }
+
+    .isNull {
+        .isNull-img {
+            width: 247rpx;
+            height: 200rpx;
+            margin: auto;
+            margin-top: 256rpx;
+
+            image {
+                width: 247rpx;
+                height: 200rpx;
+            }
+        }
+
+        .isNull-text {
+            width: 363rpx;
+            margin: auto;
+            font-size: 26rpx;
+            color: #999;
+            margin-top: 60rpx;
+            margin-bottom: 50rpx;
+            text-align: center;
+        }
+
+        .isNull-btn {
+            width: 230rpx;
+            height: 58rpx;
+            background: linear-gradient(0deg, rgba(35, 87, 255, 1) 0%, rgba(61, 126, 255, 1) 100%);
+            border-radius: 8rpx;
+            text-align: center;
+            font-size: 26rpx;
+            color: #fff;
+            line-height: 58rpx;
+            margin: auto;
+        }
+    }
+}

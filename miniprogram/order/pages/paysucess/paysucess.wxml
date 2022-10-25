@@ -1,0 +1,38 @@
+<!--mine/myOrderDetail/myOrderDetail.wxml-->
+<wxs src="../../../filter/DateFmt.wxs" module="DateFmt"></wxs>
+
+<view class="orderDetail">
+  <view class="orderType">
+    <view class="thisIcon iconfont icongoumaichenggong"></view>
+    <view class="title">
+      购买成功
+    </view>
+  </view>
+  <view class="detail">
+    <view class="contsInfo">
+      <view class="list">
+        <view class="text"> 课程名称： </view>
+        <view class="textNum"> {{orderInfo.orderItems[0].itemName}} </view>
+      </view>
+      <view class="list">
+        <view class="text"> 支付时间：</view>
+        <view class="textNum"> {{DateFmt.toFmt(orderInfo.orderFinishTime,'yyyy.MM.dd HH:mm:ss ') }} </view>
+      </view>
+      <view class="list">
+        <view class="text"> 订单编号： </view>
+        <view class="textNum"> {{orderInfo.orderId}} </view>
+      </view>
+      <view class="list">
+        <view class="text"> 优惠金额： </view>
+        <view class="textNum"> ￥{{orderInfo.totalPrice-orderInfo.totalPrice}} </view>
+      </view>
+      <view class="list">
+        <view class="text"> 实付金额： </view>
+        <view class="textNum">￥{{orderInfo.totalPrice}}</view>
+      </view>
+    </view>
+    <view class="detailIcon iconfont iconyiwancheng"></view>
+  </view>
+  <view class="button " bindtap="viewCourse">查看{{olderTypeNum[orderInfo.orderItems[0].itemType]}} </view>
+  <view class="tips">请在  <text data-url="/mine/MyCourse/MyCourse" bindtap="goNext">我的>我的课程</text> 查看</view>
+</view>

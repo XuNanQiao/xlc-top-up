@@ -1,0 +1,43 @@
+<view class="pannel">
+    <view class="section">
+        <view class="block">
+            <view class="img">
+                <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/analysis/Answerkey-img.png" />
+            </view>
+            <view class="text">恭喜你完成练习！</view>
+            <view class="btn-list">
+                <navigator url="/questionBank/index/index" class="btn-item">返回主页</navigator>
+            </view>
+        </view>
+    </view>
+    <view class="line"></view>
+    <view class="section">
+        <view class="answer">
+            <view class="answer-title">答案解析</view>
+            <view class="question-list">
+                <view class="question-item fl {{item.isRight?'':'booboo'}} {{onAnalysisItem.shiTiId==item.shiTiId?'on':''}}" wx:for="{{analysisList}}" wx:key="index" bindtap="pitchOnAnalysisItem" data-item="{{item}}" data-index="{{index+1}}">
+                    第{{index+1}}题
+                    <text class="iconfont iconclose"></text>
+                </view>
+            </view>
+            <view class="answer-number">
+                <view class="answer-number-item fl">
+                    您的答案
+                    <text class="red">{{onAnalysisItem.answerRecord}}</text>
+                </view>
+                <view class="answer-number-item fl">
+                    <view class="fl">正确答案</view>
+                    <view class="blue fl">
+                        <rich-text nodes="{{onAnalysisItem.answer}}"></rich-text>
+                    </view>
+                </view>
+            </view>
+            <view class="answerKey">
+                <view class="answerKey-title">第{{onAnalysisItem.order?onAnalysisItem.order:'1'}}题解析</view>
+                <view class="answerKey-text">
+                    <rich-text nodes="{{onAnalysisItem.analyse?onAnalysisItem.analyse:'暂无解析'}}"></rich-text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

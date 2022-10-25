@@ -1,0 +1,106 @@
+page {
+  background: #FA5355;
+}
+
+.orderDetail {
+  background: url(https://staticfile.xlcwx.com/Top-up-MiniApp/pay/bg.png) no-repeat;
+  background-position: 50rpx center;
+  background-size: 100% 923rpx;
+
+  .orderType {
+    height: 255rpx;
+    font-size: 48rpx;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    padding-top: 60rpx;
+
+    .thisIcon {
+      font-size: 95rpx !important;
+      margin-right: 12rpx;
+    }
+
+    .title {
+      margin: 0rpx 0rpx 0rpx 30rpx;
+
+
+    }
+  }
+
+  .detail {
+    width: 656rpx;
+    height: 552rpx;
+    background: url(https://staticfile.xlcwx.com/Top-up-MiniApp/pay/infoImg.png) no-repeat;
+    background-size: 100% 100%;
+
+    margin: 0rpx auto;
+    padding: 91rpx 50rpx 0rpx;
+
+    .contsInfo {
+      .list {
+        margin-top: 50rpx;
+        display: flex;
+        font-size: 30rpx;
+
+        &:nth-of-type(1) {
+          margin-top: 0rpx;
+        }
+
+        .text {
+          flex-shrink: 0;
+          color: #A1A1A1;
+          font-weight: 400;
+          color: rgba(153, 153, 153, 1);
+        }
+
+        .textNum {
+          font-weight: 400;
+          color: #222222;
+        }
+      }
+
+    }
+
+    .detailIcon {
+      font-size: 190rpx !important;
+      color: #FA6C6E;
+      width: 190rpx;
+      height: 190rpx;
+      position: absolute;
+      right: 85rpx;
+      margin-top: -150rpx;
+
+    }
+
+  }
+
+  .button {
+    width: 330rpx;
+    height: 90rpx;
+    text-align: center;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0rpx 0rpx 79rpx 0rpx rgba(255, 51, 53, 1);
+    border-radius: 45rpx;
+    font-size: 34rpx;
+    font-family: Source Han Sans CN;
+    font-weight: 500;
+    color: rgba(250, 83, 85, 1);
+    line-height: 90rpx;
+    margin: 75rpx auto 0rpx;
+  }
+
+  .tips {
+    text-align: center;
+    margin-top: 25rpx;
+    font-size: 26rpx;
+    font-family: Source Han Sans CN;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 1);
+    line-height: 30rpx;
+    
+    text {
+      color: #00a2e9;
+    }
+  }
+}

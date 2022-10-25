@@ -1,0 +1,45 @@
+<view class="content">
+  <view class="code-btn" bindtap="showModal" data-target="bottomModal">
+    <image src="../../static/invite/images/code-icon.png" />
+  </view>
+
+  <view class="flex_row_c_c {{qrShow?'show':''}}" bindtap="hideQr">
+    <view class="flex_column">
+      <image id="posterImage" bindtap="saveImg" class="haveImgBg" src="{{BgImgUrl[TabCur].imgUrl}}" mode="aspectFit" />
+      <image id="posterImage" bindtap="saveImg" class="haveImg" src="{{haveImg}}" mode="aspectFit" />
+    </view>
+  </view>
+  <view class="custom" bindtap="showModalImg" data-target="Image">点击查看自定义邀请卡模板</view>
+  <view class="inviteList">
+    <scroll-view scroll-x class="bg-white nav" scroll-with-animation scroll-left="0">
+      <view class="cu-item item {{index ==TabCur?'on':''}}" wx:for="{{BgImgUrl}}" wx:key="index"
+        bindtap="tabSelect(index)">
+        <view class="pitchOn lg text-gray cuIcon-check"></view>
+        <image src="{{item.imgUrl}}" />
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="cu-modal bottom-modal m{{odalName=='bottomModal'?'show':''}}" bindtap="hideModal">
+    <view class="cu-dialog">
+      <view class="padding-xl qrCode">
+        <view class="text">保存二维码或链接进行分享</view>
+        <view class="img">
+          <image src="{{codeImg}}" />
+        </view>
+        <view class="link">
+          <view class="left">{{link}}</view> 
+          <view class="basis-btn" style="top:30upx" bindtap="onCopy">点击复制</view> 
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="cu-modal {{ modalNameImg=='Image'?'show':''}}" bindtap="hideModalImg">
+    <view class="cu-dialog" style="width:auto">
+      <view class="bg-img"
+        style="background: url('../../static/invite/images/custom.png') no-repeat 100% 100%;width:526rpx;height:934rpx;margin:auto;background-size: 100% 100%;">
+      </view>
+    </view>
+  </view>
+</view>

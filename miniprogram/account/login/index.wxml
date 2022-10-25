@@ -1,0 +1,49 @@
+<!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button> -->
+
+<view class="logo">
+    <image class="" src="https://staticfile.xlcwx.com/Top-up-MiniApp/pages/logo.png" ></image>
+    <text>新里程教育</text>
+</view>
+<button open-type="getUserInfo" class="login-btn" bindgetuserinfo="getWxInfo" lang="zh_CN">微信授权登陆</button>
+<view class="text">
+    *未绑定过微信的用户采用微信授权登陆将自动创建新账号，无法再绑定新里程已有账号
+</view>
+
+<view class="bg" wx:if="{{!hasBind}}">
+    <view class="hasBind">
+        <view class="title">微信授权</view>
+        <text class="iconfont iconshouquan_wancheng"></text>
+        <view class="hasBind_text">授权绑定你的手机号码</view>
+        <view class="btnList">
+            <view class="item" bindtap="deny" data-state="{{true}}">拒绝</view>
+            <view class="item" bindtap="permit" data-permitstate="{{true}}" data-state="{{true}}">允许</view>
+        </view>
+    </view>
+</view>
+<view class="bg2" wx:if="{{bindPhone}}">
+    <view class="bindPhone">
+        <view class="bindLogo">
+            <view class="bindLogo-logo">
+                <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/pages/logo.png" />
+            </view>
+            <view class="bindLogo-text">
+                <text>新里程教育</text>
+                申请使用
+            </view>
+        </view>
+        <view class="bind-item">
+            <view class="left">
+                <view class="left-text">你的手机号码</view>
+            </view>
+        </view>
+        <view class="bind-item">
+            <view class="left">
+                <input placeholder="请输入手机号"  value="{{value}}" bindinput="changePhone" data-key="value"/>
+            </view>
+        </view>
+        <view class="btn-list">
+            <view class="btn-item" bindtap="denyBindPhone" data-bindphone="{{false}}">拒绝</view>
+            <view class="btn-item" bindtap="permitBindPhone" data-bindphone="{{true}}">允许</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,91 @@
+<view class="pannel">
+    <view class="section">
+        <view class="pic">
+            <image src="{{userInfo.uPic}}" />
+        </view>
+        <view class="block">
+            <view class="number">
+                <view class="num-item">
+                    <view class="title">
+                        <text>{{KaoDianNum.completeCount?KaoDianNum.completeCount:0}}</text>
+                        道
+                    </view>
+                    <view class="text">累计刷题</view>
+                    <view class="line"></view>
+                </view>
+                <view class="num-item">
+                    <view class="title">
+                        <text>{{KaoDianNum.completeDegree?KaoDianNum.completeDegree:0}}</text>
+                        %
+                    </view>
+                    <view class="text">正确率</view>
+                </view>
+            </view>
+            <view class="kc" bindtap="showKcList" data-kcisshow="{{true}}">
+                {{onKcItem.name}}
+                <text class="iconfont iconqiehuan"></text>
+            </view>
+            <view class="kcList-block" wx:if="{{kcIsShow}}" bindtap="showKcList" data-kcisshow="{{false}}">
+                <view class="kclist">
+                    <view class="kc-item {{onKcItem.name==item.name?'on':''}}" wx:for="{{kcList}}" wx:key="index" bindtap="chackKc" data-kcitem="{{item}}">{{item.name}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="module-list">
+        <navigator url="/questionBank/DailyTraining/index" class="module-item">
+            <view class="content">
+                <view class="module-title">每日一练</view>
+                <view class="module-text">每日5道测试解析题</view>
+            </view>
+            <view class="img">
+                <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/exam/MyExam/icon1.png" />
+            </view>
+        </navigator>
+        <navigator url="/questionBank/testingSites/index" class="module-item">
+            <view class="content">
+                <view class="module-title">考点练习</view>
+                <view class="module-text">直击考试考点</view>
+            </view>
+            <view class="img">
+                <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/exam/MyExam/icon2.png" />
+            </view>
+        </navigator>
+        <navigator url="/questionBank/ChapterExam/index" class="module-item">
+            <view class="content">
+                <view class="module-title">章节练习</view>
+                <view class="module-text">章节定时复习</view>
+            </view>
+            <view class="img">
+                <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/exam/MyExam/icon3.png" />
+            </view>
+        </navigator>
+        <navigator url="/questionBank/MockTest/index" class="module-item">
+            <view class="content">
+                <view class="module-title">全真模考</view>
+                <view class="module-text">模考提高考试成绩</view>
+            </view>
+            <view class="img">
+                <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/exam/MyExam/icon4.png" />
+            </view>
+        </navigator>
+        <navigator url="/examPaper/examList?classifyId=38&kcId={{onKcItem.id}}" class="module-item">
+            <view class="content">
+                <view class="module-title">历年真题</view>
+                <view class="module-text">历年真题在线做</view>
+            </view>
+            <view class="img">
+                <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/exam/MyExam/icon5.png" />
+            </view>
+        </navigator>
+        <navigator url="/examPaper/examList?classifyId=62&kcId={{onKcItem.id}}" class="module-item">
+            <view class="content">
+                <view class="module-title">考前押密</view>
+                <view class="module-text">考前押密估分数</view>
+            </view>
+            <view class="img">
+                <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/exam/MyExam/icon6.png" />
+            </view>
+        </navigator>
+    </view>
+</view>

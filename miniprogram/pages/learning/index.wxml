@@ -1,0 +1,57 @@
+<view class="pannel">
+    <view class="bg"></view>
+    <view class="dashboard">
+        <view class="das-item">
+            <view class="number">
+                <text>{{CourseTraking<1?0:CourseTraking}}</text>分钟
+            </view>
+            <view class="text">累计学习时长</view>
+        </view>
+        <view class="das-item">
+            <view class="number">
+                <text>{{KaoDianNum.completeCount?KaoDianNum.completeCount:0}}</text>道
+            </view>
+            <view class="text">累计刷题</view>
+        </view>
+        <view class="das-item">
+            <view class="number">
+                <text>{{KaoDianNum.completeDegree?KaoDianNum.completeDegree:0}}</text>%
+            </view>
+            <view class="text">答题正确率</view>
+        </view>
+    </view>
+    <swiper class="indexRotation" indicator-dots="{{true}}" indicator-color="#2357FF" indicator-active-color="#fff"
+      autoplay="{{autoplay}}">
+      <block wx:for="{{slides}}" wx:key="index">
+        <swiper-item class="rotationItem">
+          <image class="rotationItemImg" src="{{item.img}}" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="section">
+        <view class="section-item">
+            <view class="img">
+                <image src="https://staticfile.xlcwx.com/Top-up-MiniApp//learning/img1.png" />
+            </view>
+            <view class="content">
+                <view class="title">我的课程</view>
+                <view class="text">快来开启你的学习之路吧！</view>
+            </view>
+            <navigator url="/mine/MyCourse/MyCourse" class="item-btn">
+                去学习
+            </navigator>
+        </view>
+        <view class="section-item">
+            <view class="img">
+                <image src="https://staticfile.xlcwx.com/Top-up-MiniApp//learning/img2.png" />
+            </view>
+            <view class="content">
+                <view class="title">我的题库</view>
+                <view class="text">书山有路勤为径！</view>
+            </view>
+            <navigator url="/questionBank/index/index" class="item-btn">
+                去刷题
+            </navigator>
+        </view>
+    </view>
+</view>

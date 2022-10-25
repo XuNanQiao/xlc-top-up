@@ -1,0 +1,39 @@
+<view class="pannel">
+    <view class="tabbar">
+        <view class="switch" bindtap="showKcList" data-kcisshow="{{true}}">
+            切换课程
+            <text class="iconfont iconqiehuan1" bindtap="showKcList" data-kcisshow="{{true}}"></text>
+        </view>
+        <view class="kcList-block" wx:if="{{kcIsShow}}" bindtap="showKcList" data-kcisshow="{{false}}">
+            <view class="kclist">
+                <view class="kc-item {{onKcItem.name==item.name?'on':''}}" wx:for="{{kcList}}" wx:key="index"
+                    bindtap="chackKc" data-kcitem="{{item}}">
+                    {{item.name}}
+                </view>
+            </view>
+        </view>
+        <view class="kc">公共课：{{onKcItem.name}}</view>
+    </view>
+    <view class="list" wx:if="{{chapterList.length>0}}">
+        <view class="item" wx:for="{{chapterList}}" wx:key="index">
+            <view class="leftBox">
+                <view class="title ellipsis">
+                    {{item.chapterName}}
+                </view>
+                <view class="number">
+                    <view class="num-item">总题数{{item.testAmount}}题</view>
+                    <!-- <view class="num-item">10000人已测</view> -->
+                </view>
+            </view>
+            <navigator url="/questionBank/ChapterExam/question/index?id={{item.id}}&&kcId={{kcId}}" class="item-btn">
+                进入
+            </navigator>
+        </view>
+    </view>
+    <view class="isNull" wx:else>
+        <view class="isNull-img">
+            <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/freeLive/noDataImg.png" />
+        </view>
+        <view class="isNull-text">暂无数据</view>
+    </view>
+</view>

@@ -1,0 +1,47 @@
+<view class="vhall-body tc">
+  <slot name="before"></slot>
+  <view class="vhall-body-item" style="height:{{playerHeight}}px">
+    <live-player bindtap="mainShow" id="{{liveId}}" src="{{liveUrl}}" style="width:100%;height:{{playerHeight}}px;" class="{{playStatus==1?'':'hide'}}" mode="live" autoplay="{{true}}" bindfullscreenchange="fullScreenChange" bindstatechange="onStatus">
+      <cover-view wx:if="{{playStatus==1}}">
+        <cover-view class="vhall-cover {{defaultImgShow?'hide':''}}">
+          <cover-image class="img" src="{{vhallStatic.playDefaultImg}}"></cover-image>
+        </cover-view>
+        <view class="main {{showMain?'':'hide'}}" bindtap='closeChangeType'>
+          <view class="block">
+          </view>
+          <view class="block">
+            <view class="PlayRate" bindtap="bindExitFullScreen">退出全屏</view>
+          </view>
+        </view>
+        <slot name="cover-view"></slot>
+      </cover-view>
+      <cover-view class="back {{fullScreen?'':'hide'}}" bindtap="bindExitFullScreen">←</cover-view>
+    </live-player>
+    <video id="{{videoId}}" src="{{videoUrl}}" style="width:100%;height:{{playerHeight}}px;" class="{{playStatus==3?'':'hide'}}" objectFit="fill" bindtap="mainShow" bindfullscreenchange="fullScreenChange" bindwaiting="playWaiting" bindtimeupdate="playTimeUpdate"
+      bindplay="vodplay" bindpause="vodpause" bindended="vodEnd" binderror="vodError" controls="{{false}}">
+      <!-- <cover-view wx:if="{{playStatus==3}}"> -->
+      <cover-view class="vhall-cover {{defaultImgShow?'hide':''}}">
+        <cover-image class="img" src="{{vhallStatic.playDefaultImg}}"></cover-image>
+      </cover-view>
+      <view class="main {{showMain?'':'hide'}}" bindtap='closeChangeType'>
+        <view class="block">
+          <view class="Playing" wx:if="{{ispaly}}" bindtap="bindPause"> 暂停</view>
+          <view class="Playing" wx:else bindtap="bindPlay"> 播放 </view>
+          <view>{{currentTime}}/{{duration}}</view>
+        </view>
+        <view class="block">
+          <view class="PlayRate" catch:tap="changePlayRate">倍速</view>
+          <view class="PlayRate" wx:if="{{isscreenChange==true}}" bindtap="bindFullScreen">全屏</view>
+          <view class="PlayRate" wx:if="{{isscreenChange==false}}" bindtap="bindExitFullScreen">退出全屏</view>
+        </view>
+      </view>
+      <view class="tool-item change-rater {{showPlayRate==true?'':'hide'}}">
+        <view wx:for="{{playRateList}}" class="playRateList {{playRateVal==item?'font-red':''}}" wx:key="*this" data-type="{{item}}" catchtap="selectPlayRate">{{item}}X</view>
+      </view>
+      <!-- <slot name="cover-view"></slot> -->
+      <!-- </cover-view> -->
+      <!-- <cover-view class="back {{fullScreen?'':'hide'}}" bindtap="bindExitFullScreen">←</cover-view> -->
+    </video>
+  </view>
+  <slot name="after"></slot>
+</view>

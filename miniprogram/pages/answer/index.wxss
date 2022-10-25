@@ -1,0 +1,234 @@
+page {
+  background-color: #F7F7F7;
+}
+
+.answer .answerTop {
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+}
+
+.answer .answerback {
+  width: 100%;
+  height: 187rpx;
+  background: #2357ff;
+  border-radius: 0rpx 0rpx 30rpx 30rpx;
+  font-size: 36rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 500;
+  color: white;
+  padding: 12rpx 0rpx 0rpx 29rpx;
+}
+
+.answer .userQuestion {
+  margin: -100rpx 30rpx 0rpx 30rpx;
+  background: white;
+  box-shadow: 0rpx 0rpx 18rpx 0rpx rgba(0, 0, 0, 0.1);
+  border-radius: 20rpx;
+  padding: 30rpx 30rpx 28rpx;
+}
+
+.answer .userQuestion .openClick {
+  width: 100%;
+  text-align: center;
+  margin-top: 31rpx;
+  padding-top: 29rpx;
+  line-height: 26rpx;
+  border-top: 3rpx solid whitesmoke;
+  font-size: 26rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #2357ff;
+}
+
+.answer .userQuestion .userInfo {
+  width: 100%;
+  height: 119rpx;
+  display: flex;
+}
+
+.answer .userQuestion .userInfo .userPic {
+  flex-shrink: 0;
+  width: 118rpx;
+  height: 119rpx;
+  border-radius: 50%;
+  margin-right: 42rpx;
+}
+
+.answer .userQuestion .userInfo .user .userName {
+  margin-top: 8rpx;
+  font-size: 38rpx;
+  line-height: 38rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 500;
+  color: #222222;
+}
+
+.answer .userQuestion .userInfo .user .Tips {
+  margin-top: 31rpx;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 500;
+  color: #2357ff;
+}
+
+.answer .userQuestion .tabLIst {
+  height: 59rpx;
+  margin-top: 40rpx;
+  display: flex;
+  font-size: 30rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 500;
+  color: #666666;
+  border-bottom: 3rpx solid whitesmoke;
+}
+
+.answer .userQuestion .tabLIst .tabItem {
+  width: 100%;
+  text-align: center;
+}
+
+.answer .userQuestion .tabValOn {
+  color: #2357FF;
+}
+
+.answer .userQuestion .tabValOn:after {
+  margin-top: 50rpx;
+  width: 46rpx;
+  height: 6rpx;
+  margin-left: -9%;
+  border-radius: 3rpx;
+}
+
+.answer .userQuestion .questionList {
+  margin-top: 20rpx;
+  margin-bottom: 50rpx;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #333333;
+}
+
+.answer .userQuestion .questionList .questionItem {
+  margin-top: 28rpx;
+  padding-bottom: 25rpx;
+  border-bottom: 2rpx solid #F5F5F5;
+}
+
+.answer .userQuestion .switch {
+  text-align: center;
+  font-size: 26rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #2357ff;
+}
+
+.answer .answerList {
+  width: 100%;
+  padding: 0rpx 30rpx 110rpx;
+  position: absolute;
+  top: 730rpx;
+}
+
+.answer .answerList .answerItem {
+  width: 100%;
+}
+
+.answer .answerList .answerItem:last-child {
+  margin-bottom: 20rpx;
+}
+
+.answer .answerList .answerItem .ListImg {
+  flex-shrink: 0;
+  width: 85rpx;
+  height: 85rpx;
+  border-radius: 50%;
+}
+
+.answer .answerList .answerItem .text {
+  padding: 30rpx;
+  box-shadow: 0rpx 0rpx 18rpx 0rpx rgba(230, 230, 230, 0.1);
+  max-width: 470rpx;
+  font-size: 30rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: white;
+}
+
+.answer .answerList .answerItem .student {
+  margin-top: 50rpx;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.answer .answerList .answerItem .student .text {
+  margin-right: 29rpx;
+  background: #69baff;
+  color: #FFFFFF;
+  border-radius: 20rpx 0rpx 20rpx 20rpx;
+}
+
+.answer .answerList .answerItem .teacher {
+  margin-top: 50rpx;
+}
+
+.answer .answerList .answerItem .teacher .teacher-view {
+  margin-bottom: 15rpx;
+  display: flex;
+  align-items: center;
+}
+
+.answer .answerList .answerItem .teacher .teacher-view .text {
+  margin-left: 29rpx;
+  background: #fff;
+  color: #333333;
+  border-radius: 0rpx 20rpx 20rpx 20rpx;
+}
+
+.answer .answerListClose {
+  position: absolute;
+  top: 370rpx !important;
+}
+
+.answer .sendVal {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 110rpx;
+  background: white;
+  display: flex;
+  align-items: center;
+  padding: 0rpx 30rpx;
+}
+
+.answer .sendVal .sendImg {
+  font-size: 43rpx;
+  flex-shrink: 0;
+  margin-right: 14rpx;
+}
+
+.answer .sendVal .sendInput {
+  width: 100%;
+  height: 70rpx;
+  background: #f3f3f3;
+  border-radius: 35rpx;
+  padding: 0rpx 30rpx;
+  font-size: 30rpx;
+}
+
+.answer .sendVal .sendBut {
+  margin-left: 30rpx;
+  flex-shrink: 0;
+  width: 139rpx;
+  height: 70rpx;
+  text-align: center;
+  line-height: 70rpx;
+  background: #2357ff;
+  border-radius: 35rpx;
+  font-size: 30rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 500;
+  color: white;
+}

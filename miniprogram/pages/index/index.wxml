@@ -1,0 +1,139 @@
+<!-- index.wxml -->
+<wxs src="../../filter/DateFmt.wxs" module="DateFmt"></wxs>
+<wxs src="../../filter/SubString.wxs" module="SubString"></wxs>
+<view class="home">
+  <view class="vajra">
+    <swiper class="indexRotation" indicator-dots="{{true}}" indicator-color="#2357FF" indicator-active-color="#fff"
+      autoplay="{{autoplay}}">
+      <block wx:for="{{slides}}" wx:key="index">
+        <swiper-item class="rotationItem">
+          <image class="rotationItemImg" src="{{item.img}}" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="indexList">
+      <view class="listItem" data-url='{{item.url}}' bindtap="goNext" wx:for="{{indexList}}" wx:key="index">
+        <image class="itemImg" src="{{item.img}}" />
+        <view class="itemText">
+          {{item.text}}
+        </view>
+      </view>
+    </view>
+    <view class="indexExamList">
+      <view class="examItem" wx:for="{{examList}}" wx:key="index" data-url='{{item.url}}' bindtap="goNext">
+        <view class="examItemText">
+          <view class="examItemTitle">
+            {{item.title}}
+          </view>
+          <view class="examItemRemarks">
+            {{item.remarks}}
+          </view>
+        </view>
+        <image class="examItemImg" src="{{item.icon}}" />
+      </view>
+    </view>
+  </view>
+  <view class="freeLive" wx:if="{{freecourse.length>0}}">
+    <view class="liveTitle">
+      <view class="title">
+        免费直播课
+      </view>
+      <view class="more" data-url='/freeLive/pages/liveShow/liveShow' bindtap="goNext">
+        更多 <icon class="cuIcon-right"></icon>
+      </view>
+    </view>
+    <view class="liveList">
+      <view class="liveItem" wx:for="{{freecourse}}" wx:key="index">
+        <view data-url="{{'/freeLive/pages/playerPublic/playerPublic?id='+item.id}}" bindtap="goNext">
+          <view class="itemLeft">
+            <view class="typeTime">
+              <view class="type {{item.isState==1?'':(item.isState==2?'appointment':'playback')}} ">
+                {{item.isState==1?"直播":(item.isState==2?"预约中":"回放")}}
+              </view>
+              <view class="time">
+                {{DateFmt.toFmt(item.updateTime,"yyyy.MM.dd HH:mm")}}
+
+              </view>
+            </view>
+            <view class="title">
+              {{item.title}}
+            </view>
+            <view class="peopleNumber">
+              预约人数：{{item.clicks}}人
+            </view>
+          </view>
+          <view class="itemRight">
+            <image class="itemImg" src="{{item.mImg}}" />
+            <view class="state">
+              <view wx:if="{{item.isState==1}}">
+                <icon class="stateIcon  cuIcon-time" />
+                <view class="text">直播</view>
+              </view>
+              <view wx:if="{{item.isState==2}}">
+                <icon class="stateIcon  cuIcon-time" />
+                <view class="text"> 预约中</view>
+              </view>
+              <view wx:else>
+                <icon class="stateIcon cuIcon-video" />
+                <view class="text">回放</view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+
+      </view>
+    </view>
+  </view>
+  <view class=" newActive" wx:if="{{activeList.length>0}}">
+    <view class="activeTitle">
+      <image class="title" src="https://staticfile.xlcwx.com/Top-up-MiniApp/home/active.png" />
+      <view class="more" data-url='/active/pages/index/index' bindtap="goNext">
+        更多 <icon class="cuIcon-right"></icon>
+      </view>
+    </view>
+    <view class="activeList">
+      <view class="activeItem" wx:for="{{activeList}}" wx:key="index"
+        data-url="{{'/active/pages/detail/detail?url='+item.url}}" bindtap="goNext">
+        <image class="activeImg" src="{{item.img}}" />
+        <view class="activeDetail">
+          <view class="activeItemTitle ellipsisLine">
+            {{item.title}}
+          </view>
+          <view class="activePopup ellipsis">
+            {{item.summary}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="course" wx:if="{{VideosProfessionList.length>0}}">
+    <view class="courseTitle">
+      <view class="title">
+        优选课
+      </view>
+      <view class="more" data-url='/course/pages/index/index' bindtap="goNext">
+        更多 <icon class="cuIcon-right"></icon>
+      </view>
+    </view>
+    <view class="courseList">
+      <view class="courseItem" wx:for="{{VideosProfessionList}}" wx:key="index"
+        data-url="{{'/course/pages/introduction/introduction?id='+item.id}}" bindtap="goNext">
+        <image class="courseItemImg" src="{{item.img}}" />
+        <view class="title ellipsis"> {{item.title}}</view>
+        <view class="typePrice">
+          <view class="type {{item.type==1?'live':'noLive'}}">
+            {{item.type==1?"直播":"点播"}}
+          </view>
+          <view>
+            <view class="oldPrice" wx:if="{{item.oldPrice}}">
+              ￥{{item.oldPrice}}
+            </view>
+            <view class="price">
+              {{item.price>0?"￥"+item.price:"免费"}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "课程详情",
+  "usingComponents": {
+    "studioVhall": "/components/vhall/studioVhall",
+    "order":"/components/classtabar/classtabar",
+    "CouponsPro":"/components/couponsPro/couponsPro"
+  }
+}

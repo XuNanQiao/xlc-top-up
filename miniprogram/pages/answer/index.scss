@@ -1,0 +1,242 @@
+page {
+  background-color: #F7F7F7;
+}
+
+.answer {
+  .answerTop {
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+  }
+
+  .answerback {
+    width: 100%;
+    height: 187rpx;
+    background: rgba(35, 87, 255, 1);
+    border-radius: 0rpx 0rpx 30rpx 30rpx;
+    font-size: 36rpx;
+    font-family: Source Han Sans CN;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+    padding: 12rpx 0rpx 0rpx 29rpx;
+  }
+
+  .userQuestion {
+    margin: -100rpx 30rpx 0rpx 30rpx;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0rpx 0rpx 18rpx 0rpx rgba(0, 0, 0, 0.1);
+    border-radius: 20rpx;
+    padding: 30rpx 30rpx 28rpx;
+
+    .openClick {
+      width: 100%;
+      text-align: center;
+      margin-top: 31rpx;
+      padding-top: 29rpx;
+      line-height: 26rpx;
+      border-top: 3rpx solid rgba(245, 245, 245, 1);
+      font-size: 26rpx;
+      font-family: Source Han Sans CN;
+      font-weight: 400;
+      color: rgba(35, 87, 255, 1);
+    }
+
+    .userInfo {
+      width: 100%;
+      height: 119rpx;
+      display: flex;
+
+      .userPic {
+        flex-shrink: 0;
+        width: 118rpx;
+        height: 119rpx;
+        border-radius: 50%;
+        margin-right: 42rpx;
+      }
+
+      .user {
+        .userName {
+          margin-top: 8rpx;
+          font-size: 38rpx;
+          line-height: 38rpx;
+          font-family: Source Han Sans CN;
+          font-weight: 500;
+          color: rgba(34, 34, 34, 1);
+        }
+
+        .Tips {
+          margin-top: 31rpx;
+          font-size: 30rpx;
+          line-height: 30rpx;
+          font-family: Source Han Sans CN;
+          font-weight: 500;
+          color: rgba(35, 87, 255, 1)
+        }
+      }
+    }
+
+    .tabLIst {
+      height: 59rpx;
+      margin-top: 40rpx;
+      display: flex;
+      font-size: 30rpx;
+      font-family: Source Han Sans CN;
+      font-weight: 500;
+      color: rgba(102, 102, 102, 1);
+      border-bottom: 3rpx solid rgba(245, 245, 245, 1);
+    
+
+      .tabItem {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    .tabValOn {
+      color: #2357FF;
+
+      &:after {
+        margin-top: 50rpx;
+        width: 46rpx;
+        height: 6rpx;
+        margin-left: -9%;
+        border-radius: 3rpx;
+      }
+    }
+
+    .questionList {
+      margin-top: 20rpx;
+      margin-bottom: 50rpx;
+      font-size: 30rpx;
+      line-height: 30rpx;
+      font-family: Source Han Sans CN;
+      font-weight: 400;
+      color: rgba(51, 51, 51, 1);
+
+      .questionItem {
+        margin-top: 28rpx;
+        padding-bottom: 25rpx;
+        border-bottom: 2rpx solid #F5F5F5;
+      }
+    }
+
+    .switch {
+      text-align: center;
+      font-size: 26rpx;
+      font-family: Source Han Sans CN;
+      font-weight: 400;
+      color: rgba(35, 87, 255, 1);
+    }
+  }
+
+  .answerList {
+    width: 100%;
+    padding: 0rpx 30rpx 110rpx;
+    position: absolute;
+    top: 730rpx;
+
+
+    .answerItem {
+      width: 100%;
+
+      &:last-child {
+        margin-bottom: 20rpx;
+      }
+
+      .ListImg {
+        flex-shrink: 0;
+        width: 85rpx;
+        height: 85rpx;
+        border-radius: 50%;
+      }
+
+      .text {
+        padding: 30rpx;
+        box-shadow: 0rpx 0rpx 18rpx 0rpx rgba(230, 230, 230, 0.1);
+        max-width: 470rpx;
+        font-size: 30rpx;
+        font-family: Source Han Sans CN;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 1);
+
+      }
+
+      .student {
+        margin-top: 50rpx;
+        display: flex;
+        flex-direction: row-reverse;
+
+        .text {
+          margin-right: 29rpx;
+          background: rgba(105, 186, 255, 1);
+          color: #FFFFFF;
+          border-radius: 20rpx 0rpx 20rpx 20rpx;
+
+        }
+      }
+
+      .teacher {
+        margin-top: 50rpx;
+        .teacher-view{
+          margin-bottom: 15rpx;
+          display: flex;
+          align-items: center;
+          .text {
+            margin-left: 29rpx;
+            background: #fff;
+            color: #333333;
+            border-radius: 0rpx 20rpx 20rpx 20rpx;
+          }
+        }
+      }
+    }
+  }
+
+  .answerListClose {
+    position: absolute;
+    top: 370rpx !important;
+  }
+
+
+  .sendVal {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 110rpx;
+    background: rgba(255, 255, 255, 1);
+    display: flex;
+    align-items: center;
+    padding: 0rpx 30rpx;
+
+    .sendImg {
+      font-size: 43rpx;
+      flex-shrink: 0;
+      margin-right: 14rpx;
+    }
+
+    .sendInput {
+      width: 100%;
+      height: 70rpx;
+      background: rgba(243, 243, 243, 1);
+      border-radius: 35rpx;
+      padding: 0rpx 30rpx;
+      font-size: 30rpx;
+
+    }
+
+    .sendBut {
+      margin-left: 30rpx;
+      flex-shrink: 0;
+      width: 139rpx;
+      height: 70rpx;
+      text-align: center;
+      line-height: 70rpx;
+      background: rgba(35, 87, 255, 1);
+      border-radius: 35rpx;
+      font-size: 30rpx;
+      font-family: Source Han Sans CN;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+}

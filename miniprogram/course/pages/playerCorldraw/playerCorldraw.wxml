@@ -1,0 +1,66 @@
+<!--course/pages/playerCorldraw/playerCorldraw.wxml-->
+<view class="content classIntro">
+  <view style="height:420rpx;width:100%;overflow: hidden;">
+    <video bindtimeupdate="playTimeUpdate" bindpause="bindpause" bindplay="bindplay" class="wxprism-player" bindtap="mainShow" initial-time="{{videoStartTime}}"
+      id="videoPlayer" loop="{{true}}" autoplay="{{true}}" src="{{currentResourse}}" controls="{{false}}">
+      <view class="main {{showMain?'':'hide'}}">
+        <view class="block">
+          <view class="Playing stop" wx:if="{{ispaly==true}}" bindtap="bindPause"><text class=" cuIcon-stop" /></view>
+          <view class="Playing" wx:else bindtap="bindPlay"><text class="cuIcon-playfill" /> </view>
+          <view>{{currentTime}}/{{duration}}</view>
+        </view>
+        <view class="block">
+          <view class="PlayRate" catchtap="changePlayRate">倍速</view>
+          <view class="PlayRate" wx:if="{{!isscreenChange}}" bindtap="bindExitFullScreen"><text
+              class="Playicon iconfont iconquitquanping" /></view>
+          <view class="PlayRate" wx:if="{{isscreenChange}}" bindtap="bindRequestFullScreen"><text
+              class="Playicon cuIcon-full" /></view>
+        </view>
+      </view>
+      <view class="tool-item change-rater {{showPlayRate?'':'hide'}}">
+        <view class="{{playRateVal==item?'text-red':''}}" wx:for="{{playRateList}}" wx:key="index" data-type="{{item}}"
+          catchtap="selectPlayRate">{{item}}X</view>
+      </view>
+    </video>
+
+  </view>
+  <view class="KcDetail" wx:if="{{course!=null}}">
+    <view class="kcImg">
+      <image src="{{course.img}}" />
+    </view>
+    <view class="kcbrief">
+      <view class="title">{{playback.title}}</view>
+      <view class="teacher" wx:if="{{course.teacher!=null}}">{{course.teacher.name}}</view>
+    </view>
+  </view>
+  <view class="tab" style="border-bottom: 1rpx solid #EEEEEE;">
+    <view class="item" bindtap="barSelect" data-index="{{0}}">
+      章节定位
+      <view class="{{barTabCur==0?'tabValAllOn':''}}"></view>
+    </view>
+    <view class="item" bindtap="barSelect" data-index="{{1}}">
+      聊天区
+      <view class="{{barTabCur==1?'tabValAllOn':''}}"></view>
+    </view>
+  </view>
+
+  <view class="list" wx:if="{{barTabCur==0}}">
+    <view class="videoItem" wx:for="{{videoSegmentList}}" wx:key="index" bindtap="click"
+      data-time="{{item.progressMarkersObj.offset}}" data-index="{{index}}">
+      <view class="liveIng" wx:if="{{liveInde==index}}">
+        <i class="iconfont icon-zhengzaizhibo" />播放中
+      </view>
+      <view class="image">
+        <image src="{{item.progressMarkersObj.coverUrl}}" />
+      </view>
+      <view class="time" style="background:{{liveInde==index?'#EF7C38':''}}">
+        <i class="iconfont icon-buzhoukongxinyuan fl"></i>
+        <view class="number fl">{{item.progressMarkersObj.offsetTime}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="chat" wx:if="{{barTabCur==1}}">
+    <chatRobot height="{{height}}"></chatRobot>
+  </view>
+</view>

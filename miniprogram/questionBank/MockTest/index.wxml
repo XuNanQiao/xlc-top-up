@@ -1,0 +1,68 @@
+<wxs src="../../filter/DateFmt.wxs" module="DateFmt"></wxs>
+<view class="pannel">
+    <view class="navtab">
+        <view class="nav-item fl {{onChack==1?'on':''}}" bindtap="chackTab" data-index="1">
+            全部考试
+            <view class="line"></view>
+        </view>
+        <view class="nav-item fl {{onChack==2?'on':''}}" bindtap="chackTab" data-index="2">
+            考试记录
+            <view class="line"></view>
+        </view>
+    </view>
+    <view class="list" wx:if="{{onChack == 1}}">
+        <view class="item" wx:for="{{examList}}" wx:key="index">
+            <view class="title ellipsis">
+                <view class="type fl tag1" wx:if="{{item.mode == 0}}">邀请</view>
+                <view class="type fl tag2" wx:if="{{item.mode != 0}}">非邀请</view>
+                {{item.title}}
+            </view>
+            <view class="time">开始时间：{{DateFmt.toFmt(item.startUTCTime,"yyyy/MM/dd HH:mm")}}</view>
+            <view class="time">截至时间：{{DateFmt.toFmt(item.endUTCTime,"yyyy/MM/dd HH:mm")}}</view>
+            <view class="state">
+                <view wx:if="{{item.startTime > thisTime}}">考场状态：未开始</view>
+                <view wx:elif="{{item.startTime < thisTime && thisTime < item.endTime}}">
+                    考场状态：已开始
+                </view>
+                <view wx:elif="{{thisTime > item.endTime}}">考场状态：已结束</view>
+                <text>共{{item.shijuanCount}}套试卷</text>
+            </view>
+            <view class="price">{{item.price?'￥'+item.price:'免费'}}</view>
+            <view class="item-btn gary" wx:if="{{item.startTime > thisTime}}">未开始</view>
+            <view class="item-btn" wx:elif="{{item.startTime < thisTime && thisTime < item.endTime}}" bindtap="linkto" data-isPurchased="{{item.isPurchased}}" data-price="{{item.price}}" data-id="{{item.id}}">
+                进入考试
+            </view>
+            <view class="item-btn gary" wx:elif="{{thisTime > item.endTime}}">已结束</view>
+        </view>
+    </view>
+    <view class="list" wx:if="{{onChack == 2}}">
+        <view wx:if="{{recordList.length>0}}">
+            <view class="item" wx:for="{{recordList}}" wx:key="index">
+                <view class="title ellipsis">
+                    <view class="type fl tag1" wx:if="{{item.mode == 0}}">邀请</view>
+                    <view class="type fl tag2" wx:if="{{item.mode != 0}}">非邀请</view>
+                    {{item.title}}
+                </view>
+                <view class="time">
+                    开始时间：{{DateFmt.toFmt(item.startUTCTime,"yyyy/MM/dd HH:mm")}}
+                </view>
+                <view class="time">截至时间：{{DateFmt.toFmt(item.endUTCTime,"yyyy/MM/dd HH:mm")}}</view>
+                <view class="state">
+                    <view wx:if="{{item.startTime > thisTime}}">考场状态：未开始</view>
+                    <view wx:elif="{{item.startTime < thisTime && thisTime < item.endTime}}">
+                        考场状态：已开始
+                    </view>
+                    <view wx:elif="{{thisTime > item.endTime}}">考场状态：已结束</view>
+                    <text>共{{item.shijuanCount}}套试卷</text>
+                </view>
+                <view class="item-btn gary">已参加</view>
+            </view>
+        </view>
+        <view class="isNull" wx:else>
+            <view class="isNull-img">
+                <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/freeLive/noDataImg.png" />
+            </view>
+            <view class="isNull-text">暂无数据</view>
+        </view>
+    </view>
+</view>

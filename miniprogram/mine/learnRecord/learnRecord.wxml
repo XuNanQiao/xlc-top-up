@@ -1,0 +1,49 @@
+<!--mine/learnRecord/learnRecord.wxml-->
+<wxs src="../../filter/DateFmt.wxs" module="DateFmt"></wxs>
+
+<view class="learnRecord">
+
+  <view class="sevenDay" wx:if="{{sevenDayList.length>0}}">
+    <view class="title">
+      7天内
+    </view>
+    <view class="recordList">
+      <view class="recordItem" wx:for="{{sevenDayList}}" wx:key="index" bindtap="goNext" data-id="{{item.courseId}}" data-type="{{item.type}}">
+        <image class="itemImg" src="{{item.courseIcon}}" />
+        <view class="itemInfo">
+          <view class="itemTitle ellipsisLine">
+            {{item.courseName}}
+          </view>
+          <view class="itemTime">
+            {{DateFmt.toFmt(item.endTime,'MM-dd HH:mm') }}
+          </view>
+        </view> 
+      </view>
+    </view>
+  </view>
+  <view class="before" wx:if="{{beforeList.length>0}}">
+    <view class="title">
+      更早
+    </view>
+    <view class="recordList">
+      <view class="recordItem" wx:for="{{beforeList}}" wx:key="index" bindtap="goNext" data-id="{{item.courseId}}" data-type="{{item.type}}">
+        <image class="itemImg" src="{{item.courseIcon}}" />
+        <view class="itemInfo">
+          <view class="itemTitle ellipsisLine">
+            {{item.courseName}}
+          </view>
+          <view class="itemTime">
+            {{DateFmt.toFmt(item.endTime,'MM-dd HH:mm') }}
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+  <view class="haveNot" wx:if="{{beforeList.length==0&&sevenDayList.length==0}}">
+    <view class="img">
+      <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/pay/guanHaveNot.png.png" />
+    </view>
+    <view class="text">暂无观看记录</view>
+  </view>
+</view>

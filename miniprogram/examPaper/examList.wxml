@@ -1,0 +1,37 @@
+<view class="pannel">
+    <view class="tabbar">
+        <view class="switch" bindtap="showKcList" data-kcisshow="{{true}}">
+            切换课程
+            <text class="iconfont iconqiehuan1" bindtap="showKcList" data-kcisshow="{{true}}"></text>
+        </view>
+        <view class="kcList-block" wx:if="{{kcIsShow}}" bindtap="showKcList" data-kcisshow="{{false}}">
+            <view class="kclist">
+                <view class="kc-item {{onKcItem.name==item.name?'on':''}}" wx:for="{{kcList}}" wx:key="index" bindtap="chackKc" data-kcitem="{{item}}">
+                    {{item.name}}
+                </view>
+            </view>
+        </view>
+        <view class="kc">公共课：{{onKcItem.name}}</view>
+    </view>
+    <view class="list" wx:if="{{examPackageList.length>0}}">
+        <navigator url="./details?id={{item.id}}" class="item" wx:for="{{examPackageList}}" wx:key="index">
+            <view class="img">
+                <image src="{{item.img}}" />
+            </view>
+            <view class="content">
+                <view class="title">{{item.title}}</view>
+                <view class="text">
+                    <text wx:if="{{item.summary}}">{{item.summary}}</text>
+                </view>
+                <view class="price" wx:if="{{item.price}}">￥{{item.price}}</view>
+                <view class="price" wx:else>免费</view>
+            </view>
+        </navigator>
+    </view>
+    <view class="isNull" wx:else>
+        <view class="isNull-img">
+            <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/freeLive/noDataImg.png" />
+        </view>
+        <view class="isNull-text">暂无数据</view>
+    </view>
+</view>

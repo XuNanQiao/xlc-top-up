@@ -1,0 +1,78 @@
+<wxs src="../../filter/DateFmt.wxs" module="DateFmt"></wxs>
+<view class="cu-modal bottom-modal {{modalName=='CouponsModal'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog">
+    <view class="modal-title">
+      <view class="text">领券</view>
+      <view class="close" bindtap="hideModal">
+        <text class="lg cuIcon-close" />
+      </view>
+    </view>
+    <view class="modal-block">
+      <view class="isNull" wx:if="{{!couponsList.length>0}}">
+        <view class="img">
+          <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/components/isNull.png" />
+        </view>
+        <view class="text">您暂无可以使用的优惠券</view>
+      </view>
+      <view wx:else>
+        <view class="Carlist" wx:for="{{couponsList}}" wx:key="index">
+          <view class="CarListContent">
+            <view class="money">
+              <view class="number">
+                <text class="moneyLog">￥</text>
+                {{item.marketingCoupons.preferentialAmount}}
+              </view>
+              <view class="moneyType" wx:if="{{item.marketingCoupons.type == 2}}">满减券</view>
+              <view class="moneyType" wx:if="{{item.marketingCoupons.type == 1}}">无门槛券</view>
+            </view>
+
+            <view class=" contentTitle">
+              <view class="title">{{item.marketingCoupons.name}}</view>
+              <view class="time">
+                {{DateFmt.toFmt(item.marketingCoupons.startTime,'yyyy.MM.dd')}}-{{DateFmt.toFmt(item.marketingCoupons.endTime,'yyyy.MM.dd')}}
+              </view>
+            </view>
+
+            <view wx:if="{{item.isGet==true}}" class="contentBut-isGet contentBut" bindtap="Purchased">
+              <view>立即使用</view>
+            </view>
+
+            <view wx:else class="contentBut" data-id="{{item.marketingCoupons.id}}" bindtap="PutMarketCode">
+              <view>立即领取</view>
+            </view>
+
+            <view class="icon" wx:if="{{item.isGet}}">
+              <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/components/draw.png" />
+            </view>
+          </view>
+          <view class="box"></view>
+          <view class="boxRight"></view>
+          <view class="CarListTip">
+            <!-- 无门槛券 -->
+            <view wx:if="{{item.marketingCoupons.type==1}}">
+              <!-- 指定 -->
+              <view class="text" wx:if="{{item.marketingCoupons.scopeType == 2}}">仅适用于{{scopeName}}商品使用！</view>
+              <!-- 通用 -->
+              <view class="text" wx:else>适用于全部商品！</view>
+            </view>
+            <!-- 满减券 -->
+            <view wx:else>
+              <view class="text">
+                满{{item.marketingCoupons.limitFullPrice}}元减{{item.marketingCoupons.preferentialAmount}}元
+              </view>
+            </view>
+            <view class="rule" data-url="{{'/mine/couponRule/couponRule?id='+item.marketingCoupons.id}}"
+              bindtap="goNext">
+              使用规则
+              <text class="cuIcon-right"></text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="modal-text">
+      请在
+      <text data-url="/mine/myCoupon/myCoupon" bindtap="goNext">我的>优惠券</text>查看
+    </view> 
+  </view>
+</view>

@@ -1,0 +1,46 @@
+<view class="pannel">
+    <view class="tabbar">
+        <view class="switch" bindtap="showKcList" data-kcisshow="{{true}}">
+            切换课程
+            <text class="iconfont iconqiehuan1" bindtap="showKcList" data-kcisshow="{{true}}"></text>
+        </view>
+        <view class="kcList-block" wx:if="{{kcIsShow}}" bindtap="showKcList" data-kcisshow="{{false}}">
+            <view class="kclist">
+                <view class="kc-item {{onKcItem.name==item.name?'on':''}}" wx:for="{{kcList}}" wx:key="index" bindtap="chackKc" data-kcitem="{{item}}">
+                    {{item.name}}
+                </view>
+            </view>
+        </view>
+        <view class="kc">公共课：{{onKcItem.name}}</view>
+    </view>
+    <view class="list" wx:if="{{examKeyPointList.length>0}}">
+        <view class="item" wx:for="{{examKeyPointList}}" wx:key="index">
+            <view class="title">
+                <view class="fl title-text">{{item.title}}</view>
+                <view class="degree fl">
+                    <view class="fl" wx:if="{{item.degree == 1 }}">底频</view>
+                    <view class="fl" wx:if="{{item.degree == 2 || item.degree == 3}}">中频</view>
+                    <view class="fl" wx:if="{{item.degree == 4 || item.degree == 5}}">高频</view>
+                    <view class="star fl">
+                        <text class="icon-on lg cuIcon-favorfill " wx:for="{{item.degree}}" wx:key="index"></text>
+                        <text class="icon lg cuIcon-favorfill " wx:for="{{5-item.degree}}" wx:key="index"></text>
+                    </view>
+                </view>
+            </view>
+            <view class="text">{{item.history}}</view>
+            <view class="btn-list">
+                <navigator url="/questionBank/testingSites/question/index?id={{item.id}}" class="training fl" wx:if="{{item.questionCount>0}}">练习{{item.completeCount}}/{{item.questionCount}}题目</navigator>
+                <view class="training fl" wx:else bindtap="noQuestionCount">练习{{item.completeCount}}/{{item.questionCount}}题目</view>
+
+                <!-- <view class="video-btn fl">视频解析</view> -->
+            </view>
+            <navigator url="/questionBank/testingSites/analysis/textAnalysis?id={{item.id}}" class="img-btn">图文解析</navigator>
+        </view>
+    </view>
+    <view class="isNull" wx:else>
+        <view class="isNull-img">
+            <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/freeLive/noDataImg.png" />
+        </view>
+        <view class="isNull-text">暂无数据</view>
+    </view>
+</view>

@@ -1,0 +1,336 @@
+.prism-player .prism-big-play-btn {
+  background-color: red !important;
+}
+
+.prism-player .prism-big-play-btn .outter {
+  background-color: red !important;
+}
+
+.wxprism-player {
+  width: 100%;
+  height: 420rpx;
+}
+
+.classIntro {
+  height: calc(100vh - 44px);
+  overflow: hidden;
+
+  #player {
+    width: 750rpx;
+    height: 420rpx;
+    z-index: 1;
+  }
+
+  .periodMenu {
+    display: inline-block;
+    border: solid 1rpx #39bdb4;
+    color: #39bdb4;
+    border-radius: 15rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    padding: 0 30rpx;
+    font-size: 22rpx;
+    position: relative;
+    overflow: hidden;
+
+    &.off {
+      border: solid 1rpx #cbcbcb !important;
+      color: #cbcbcb !important;
+    }
+
+    .triangle {
+      height: 40rpx;
+      width: 50rpx;
+      overflow: hidden;
+      position: absolute;
+      top: -18rpx;
+      right: -19rpx;
+      transform: rotate(40deg);
+      color: #fff;
+      background-color: #39bdb4;
+      text-align: center;
+
+      .iconfont {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  .KcDetail {
+    width: 100%;
+    background-color: #fff;
+    padding: 30rpx 30rpx 0;
+    display: flex;
+    justify-content: start;
+
+    .kcImg {
+      flex-shrink: 0;
+      width: 190rpx;
+      height: 130rpx;
+      border-radius: 4rpx;
+      overflow: hidden;
+
+      image {
+        width: 190rpx;
+        height: 130rpx;
+      }
+    }
+
+    .kcbrief {
+      margin-left: 21rpx;
+      height: 130rpx;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .title {
+        font-size: 26rpx;
+        color: rgba(39, 50, 63, 1);
+        line-height: 40rpx;
+      }
+
+      .teacher {
+        font-size: 24rpx;
+        color: rgba(168, 171, 190, 1);
+      }
+    }
+  }
+
+  .tab {
+    width: 100%;
+    background-color: #fff;
+    line-height: 90rpx;
+    padding: 0 30rpx;
+
+    .item {
+      width: 50%;
+      text-align: center;
+      font-size: 28rpx;
+      display: inline-block;
+    }
+  }
+
+  .list {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 20rpx 30rpx 20rpx;
+    height: calc(100vh - 680rpx - 44px);
+    overflow-y: scroll;
+
+    .liveIng {
+      position: absolute;
+      left: 10rpx;
+      top: 10rpx;
+      display: initial;
+      padding: 0 14rpx;
+      line-height: 30rpx;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 15rpx;
+      font-size: 20rpx;
+      color: rgba(255, 255, 255, 1);
+      z-index: 10;
+    }
+
+    .videoItem {
+      width: 335rpx;
+      height: 220rpx;
+      float: left;
+      position: relative;
+      margin-bottom: 20rpx;
+
+      .image {
+        width: 335rpx;
+        height: 220rpx;
+        border-radius: 10rpx;
+        display: block;
+        overflow: hidden;
+
+        image {
+          width: 335rpx;
+          height: 220rpx;
+        }
+      }
+
+      .time {
+        position: absolute;
+        right: 10rpx;
+        bottom: 10rpx;
+        display: initial;
+        padding: 0 14rpx;
+        height: 30rpx;
+        line-height: 30rpx;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 15rpx;
+        font-size: 20rpx;
+        color: rgba(255, 255, 255, 1);
+
+        .iconfont {
+          font-size: 20rpx;
+          line-height: 30rpx;
+          margin-right: 6rpx;
+        }
+      }
+    }
+  }
+
+  .chat {
+    .userImg {
+      width: 70rpx;
+      height: 70rpx;
+      border-radius: 50%;
+      background-color: goldenrod;
+    }
+
+    .time {
+      font-size: 24rpx;
+      line-height: 24rpx;
+      color: rgba(168, 171, 190, 1);
+      line-height: 24rpx;
+    }
+
+    .content {
+      padding: 20rpx;
+      max-width: 500rpx;
+      width: initial;
+      font-size: 24rpx;
+      color: rgba(39, 50, 63, 1);
+      line-height: 36rpx;
+      margin-top: 10rpx;
+    }
+
+    .teacher {
+      margin-bottom: 37rpx;
+      display: flex;
+      justify-content: start;
+
+      .teacherContent {
+        margin-left: 21rpx;
+
+        .teacherText {
+          background: rgba(225, 242, 255, 1);
+          border-radius: 0rpx 20rpx 20rpx 20rpx;
+        }
+      }
+    }
+
+    .mine {
+      margin-bottom: 37rpx;
+      display: flex;
+      justify-content: end;
+      flex-direction: row-reverse;
+
+      .mineContent {
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        margin-right: 21rpx;
+
+        .time {
+          text-align: end;
+        }
+
+        .mineText {
+          display: inline-block;
+          background: rgba(214, 248, 236, 1);
+          border-radius: 20rpx 0rpx 20rpx 20rpx;
+        }
+      }
+    }
+
+    .inputBox {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100rpx;
+      padding: 20rpx 30rpx;
+      background: rgba(245, 246, 250, 1);
+      display: flex;
+      justify-content: space-between;
+
+      .shuru {
+        width: 530rpx;
+        height: 60rpx;
+        background: rgba(255, 255, 255, 1);
+        border: 1rpx solid rgba(168, 171, 190, 1);
+        border-radius: 30rpx;
+        font-size: 24rpx;
+        padding: 10rpx;
+      }
+
+      .boxBut {
+        width: 140rpx;
+        height: 60rpx;
+        background: linear-gradient(90deg,
+            rgba(31, 150, 241, 1) 0%,
+            rgba(98, 185, 251, 1) 100%);
+        border-radius: 30rpx;
+        font-size: 24rpx;
+        line-height: 60rpx;
+        text-align: center;
+        color: rgba(255, 255, 255, 1);
+      }
+    }
+  }
+}
+
+.main {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 75rpx;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  padding: 0 20rpx;
+}
+
+.block {
+  display: flex;
+  align-items: center;
+}
+
+.PlayRate {
+  line-height: 75rpx;
+  padding: 0 20rpx; 
+}
+
+.Playicon {
+  font-size: 37rpx !important;
+}
+
+.Playing {
+  line-height: 75rpx;
+  padding: 0 40rpx 0 20rpx;
+  font-size: 40rpx;
+}
+
+.stop {
+  font-size: 45rpx;
+  font-weight: bold;
+
+}
+
+.hide {
+  display: none !important;
+}
+
+.tool-item {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 250rpx;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}

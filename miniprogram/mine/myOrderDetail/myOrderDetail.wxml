@@ -1,0 +1,60 @@
+<!--mine/myOrderDetail/myOrderDetail.wxml-->
+<wxs src="../../filter/DateFmt.wxs" module="DateFmt"></wxs>
+
+<view class="orderDetail">
+  <view class="orderType">
+    <view wx:if="{{orderInfo.status==2}}" class="title">
+      <text class="thisIcon cuIcon-roundcheck" /> 订单支付成功
+    </view>
+    <view wx:if="{{orderInfo.status==0}}" class="title">
+      <text class="thisIcon iconfont iconshijian" /> 订单待支付
+    </view>
+    <view wx:if="{{orderInfo.status==1}}" class="title">
+      <text class="thisIcon iconfont iconshijian" /> 订单已关闭
+    </view>
+  </view>
+  <view class="detail">
+    <view wx:for="{{orderInfo.orderItems}}" wx:key="index">
+      <view class="conts" wx:if="{{item!=null}}">
+        <image class="img fl" src="{{item.itemImg}}" />
+        <view class="neirong fl">
+          <view class="text">
+            <view class="item-title ellipsis">{{item.itemName}}</view>
+            <view class="price">
+              ￥{{item.itemPrice}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="contsInfo">
+      <view class="list">
+        <view class="text"> 订单编号 </view>
+        <view class="textNum"> {{orderInfo.orderId}} </view>
+      </view>
+      <view class="list">
+        <view class="text"> 下单时间 </view>
+        <view class="textNum"> {{DateFmt.toFmt(orderInfo.orderTime,'yyyy.MM.dd HH:mm:ss ') }} </view>
+      </view>
+      <view class="list" wx:if="{{orderInfo.status==2}}">
+        <view class="text"> 支付时间 </view>
+        <view class="textNum"> {{DateFmt.toFmt(orderInfo.orderFinishTime,'yyyy.MM.dd HH:mm:ss ') }} </view>
+      </view>
+      <view class="list">
+        <view class="text"> 商品总价 </view>
+        <view class="textNum listPrice">￥ {{orderInfo.totalPrice}} </view>
+      </view>
+    </view>
+    <view wx:if="{{orderInfo.status==2}}" class="totalPrice"><text class="totalPriceText"> 实付金额</text> ¥
+      {{orderInfo.totalPrice}}</view>
+  </view>
+  <view wx:if="{{orderInfo.status==2}}" class="button butSuccse" bindtap="viewCourse">
+    查看{{olderTypeNum[orderInfo.orderItems[0].itemType]}}
+  </view>
+  <view wx:elif="{{orderInfo.status==1}}" class="button butNot" bindtap="payAgain">
+    重新下单
+  </view>
+  <view wx:elif="{{orderInfo.status==0}}" class="button butNot" bindtap="payment">
+    立即支付
+  </view>
+</view>

@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "vhall": "/wxcomponents/lib/vhall/components/vhall/vhall"
+  }
+}

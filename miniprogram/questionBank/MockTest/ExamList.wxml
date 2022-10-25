@@ -1,0 +1,20 @@
+<view class="pannel">
+    <view class="title">{{room.title}}</view>
+    <view class="list" wx:if="{{room.exams.length>0}}">
+        <view class="item" wx:for="{{room.exams}}" bindtap="linkTo" data-id="{{item.roomExamId}}" wx:key="index" data-examid="{{item.examId}}">
+            <view class="img fl">
+                <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/exam/MyExam/room-list-icon1.png" />
+            </view>
+            <view class="text ellipsis fl">{{item.examTitle}}</view>
+            <view class="icon fr">
+                <text class="lg cuIcon-right"></text>
+            </view>
+        </view>
+    </view>
+    <view class="isNull" wx:else>
+        <view class="isNull-img">
+            <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/freeLive/noDataImg.png" />
+        </view>
+        <view class="isNull-text">暂无数据</view>
+    </view>
+</view>

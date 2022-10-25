@@ -1,0 +1,146 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/mine/index",
+    "pages/learning/index",
+    "pages/logs/logs",
+    "pages/answer/index"
+  ],
+  "subPackages": [
+    {
+      "root": "account",
+      "pages": [
+        "login/index",
+        "bindPhone/index"
+      ]
+    },
+    {
+      "root": "mine",
+      "pages": [
+        "userInfo/userInfo",
+        "userInfo/nickName",
+        "userInfo/changePassword",
+        "MyCourse/MyCourse",
+        "myCoupon/myCoupon",
+        "couponRule/couponRule",
+        "myOrder/myOrder",
+        "myOrderDetail/myOrderDetail",
+        "learnRecord/learnRecord",
+        "invite/invite"
+      ]
+    },
+    {
+      "root": "questionBank",
+      "pages": [
+        "index/index",
+        "testingSites/index",
+        "testingSites/analysis/textAnalysis",
+        "testingSites/question/index",
+        "testingSites/question/Answerkey",
+        "DailyTraining/index",
+        "DailyTraining/analysis/textAnalysis",
+        "DailyTraining/question/index",
+        "DailyTraining/question/Answerkey",
+        "MockTest/index",
+        "MockTest/ExamList",
+        "MockTest/question/index",
+        "MockTest/question/Answerkey",
+        "ChapterExam/index",
+        "ChapterExam/question/index",
+        "ChapterExam/question/Answerkey"
+      ]
+    },
+    {
+      "root": "examPaper",
+      "pages": [
+        "examList",
+        "details",
+        "question/index",
+        "question/Answerkey"
+      ]
+    },
+    {
+      "root": "market",
+      "pages": [
+        "pages/index/index"
+      ]
+    },
+    {
+      "root": "freeLive",
+      "pages": [
+        "pages/liveShow/liveShow",
+        "pages/playerPublic/playerPublic",
+        "pages/studio/studio"
+      ]
+    },
+    {
+      "root": "course",
+      "pages": [
+        "pages/index/index",
+        "pages/introduction/introduction",
+        "video/introduction/introduction",
+        "pages/play/play",
+        "video/play/play",
+        "pages/playerCorldraw/playerCorldraw",
+        "video/playerCorldraw/playerCorldraw"
+      ]
+    },
+    {
+      "root": "active",
+      "pages": [
+        "pages/index/index",
+        "pages/detail/detail"
+      ]
+    },
+    {
+      "root": "order",
+      "pages": [
+        "pages/index/index",
+        "pages/paysucess/paysucess"
+      ]
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "赢在专升本",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#fff",
+    "enablePullDownRefresh": true
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx92978cc11bec006e"
+  ],
+  "tabBar": {
+    "selectedColor": "#2357FF",
+    "color": "#656565",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/static/pages/images/pageImg_1.png",
+        "selectedIconPath": "/static/pages/images/pageImg_1_on.png"
+      },
+      {
+        "pagePath": "pages/learning/index",
+        "text": "学习",
+        "iconPath": "/static/pages/images/pageImg_2.png",
+        "selectedIconPath": "/static/pages/images/pageImg_2_on.png"
+      },
+      {
+        "pagePath": "pages/answer/index",
+        "text": "答疑",
+        "iconPath": "/static/pages/images/pageImg_3.png",
+        "selectedIconPath": "/static/pages/images/pageImg_3_on.png"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "text": "我的",
+        "iconPath": "/static/pages/images/pageImg_4.png",
+        "selectedIconPath": "/static/pages/images/pageImg_4_on.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

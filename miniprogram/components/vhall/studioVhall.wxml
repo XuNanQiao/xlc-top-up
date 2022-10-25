@@ -1,0 +1,5 @@
+<view>
+  <vhall autoPlay=" {{true}}" bind:playSource="getPlaySource" bind:fullScreenChange="screenChange" bind:playWaiting="waiting" bind:playTimeUpdate="playUpdate" bind:errorMsg="errorFn" bind:playStatus="playStatus" bind:onMessage="onGetMessage">
+  </vhall>
+
+</view>

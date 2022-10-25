@@ -1,0 +1,108 @@
+<wxs src="../../filter/SubString.wxs" module="SubString"></wxs>
+<view class="pannel">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{current}}" interval="{{interval}}" bindchange="demo">
+        <swiper-item wx:for="{{qusetionList}}" wx:key="index" wx:for-index="questionIndex">
+            <view class="item">
+                <view class="type">
+                    <view class="left fl">{{item.name}}</view>
+                    
+                    <view class="number fl">
+                        <text>{{questionIndex+1}}</text>
+                        /{{qusetionList.length}}
+                    </view>
+                </view>
+                <view class="item-title">
+                    <rich-text wx:if="{{item.additional.tigan}}" nodes="{{item.additional.tigan}}"></rich-text>
+                    <rich-text nodes="{{item.questionStem}}"></rich-text>
+                </view>
+                <!-- 单选题 -->
+                <view class="question-list" wx:if="{{item.questionType == 1}}">
+                    <view class="question-item cu-form-group {{item.additional.userAnswer===SubString.fromCharCode(index+1)?'on':''}}" wx:for="{{item.optionList}}" wx:for-item="answerItem" wx:key="index" bindtap="checkRadioboxAnswer" data-questionid="{{item.additional.id}}" data-index="{{index}}" data-questionindex="{{questionIndex}}" data-item="{{item}}">
+                        {{SubString.fromCharCode(index+1)}}.<rich-text catchtap="checkRadioboxAnswer" data-questionid="{{item.additional.id}}" data-index="{{index}}" data-questionindex="{{questionIndex}}" data-item="{{item}}" nodes="{{answerItem}}"></rich-text>
+                    </view>
+                </view>
+                <!-- 多选题 -->
+                <view class="question-list" wx:if="{{item.questionType == 2}}">
+                    <view class="question-item cu-form-group {{SubString.indexToOf(item.additional.userAnswer,SubString.fromCharCode(index+1))?'on':''}}" wx:for="{{item.optionList}}" wx:for-item="answerItem" wx:key="index" bindtap="checkCheckedAnswer" data-questionid="{{item.additional.id}}" data-index="{{index}}" data-questionindex="{{questionIndex}}" data-item="{{item}}">
+                        {{SubString.fromCharCode(index+1)}}.<rich-text catchtap="checkCheckedAnswer" data-questionid="{{item.additional.id}}" data-index="{{index}}" data-questionindex="{{questionIndex}}" data-item="{{item}}" nodes="{{answerItem}}"></rich-text>
+                    </view>
+                </view>
+                <!-- 判断题 -->
+                <view class="question-list" wx:if="{{item.questionType == 3}}">
+                    <view class="question-item cu-form-group {{item.additional.userAnswer===SubString.fromCharCode(1)?'on':''}}" catchtap="checkRadioboxAnswer" data-questionid="{{item.additional.id}}" data-index="{{0}}" data-questionindex="{{questionIndex}}" data-item="{{item}}">
+                        {{SubString.fromCharCode(1)}}.对
+                    </view>
+                    <view class="question-item cu-form-group {{item.additional.userAnswer===SubString.fromCharCode(2)?'on':''}}" catchtap="checkRadioboxAnswer" data-questionid="{{item.additional.id}}" data-index="{{1}}" data-questionindex="{{questionIndex}}" data-item="{{item}}">
+                        {{SubString.fromCharCode(2)}}.错
+                    </view>
+                </view>
+                <!-- 填空题 -->
+                <view class="question-list" wx:if="{{item.questionType == 4}}">
+                    <view class="question-text">
+                        <view class="text">答：</view>
+                        <input wx:if="{{modalName!='bottomModal'}}"  class="textarea" value="{{value}}" bindinput="bindTextAreaBlur" data-questionid="{{item.id}}" data-questionindex="{{questionIndex}}" data-item="{{item}}" placeholder="请输入答案" />
+                    </view>
+                </view>
+            </view>
+        </swiper-item>
+    </swiper>
+    <view class="btn-list">
+        <view class="left fl">
+            <view class="left-btn fl" bindtap="prev">
+                <text class="lg cuIcon-back"></text>
+                上一题
+            </view>
+            <view class="left-btn fl" bindtap="next">
+                下一题
+                <text class="lg cuIcon-right"></text>
+            </view>
+        </view>
+        <view class="AnswerSheet fr" bindtap="showModal">
+            <view class="iconfont icondatiqia"></view>
+            <view>答题卡</view>
+        </view>
+    </view>
+    <view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}" bindtap="hideModal">
+        <view class="cu-dialog">
+            <view class="number">
+                <view class="number-item">共{{qusetionList.length}}个试题</view>
+                <view class="number-item">
+                    已完成
+                    <text class="blue">{{complete}}</text>
+                    个
+                </view>
+                <view class="number-item">
+                    剩余
+                    <text class="red">{{qusetionList.length-complete}}</text>
+                    个
+                </view>
+            </view>
+            <view class="question-num-list">
+                <view wx:for="{{qusetionList}}" wx:for-index="questionindex" wx:key="index">
+                    <view class="question-num-item {{item.additional.userAnswer!=''&& item.additional.userAnswer?'on':''}}" wx:if="{{item.questionType==1}}" bindtap="toCurrent" data-index="{{questionindex}}">
+                        {{questionindex+1}}
+                    </view>
+                    <view class="question-num-item {{item.additional.userAnswer!=''&& item.additional.userAnswer?'on':''}}" wx:if="{{item.questionType==2}}" bindtap="toCurrent" data-index="{{questionindex}}">
+                        {{questionindex+1}}
+                    </view>
+                    <view class="question-num-item {{item.additional.userAnswer!=''&& item.additional.userAnswer?'on':''}}" wx:if="{{item.questionType==3}}" bindtap="toCurrent" data-index="{{questionindex}}">
+                        {{questionindex+1}}
+                    </view>
+                    <view class="question-num-item {{item.additional.userAnswer!=''&& item.additional.userAnswer?'on':''}}" wx:if="{{item.questionType==4}}" bindtap="toCurrent" data-index="{{questionindex}}">
+                        {{questionindex+1}}
+                    </view>
+                </view>
+            </view>
+            <view class="questiong-modal-btnlist" bindtap="hideModal">
+                <view class="questiong-modal-item fl">继续做题</view>
+                <view class="questiong-modal-item fl" bindtap="PostPointId">提交试卷</view>
+            </view>
+        </view>
+    </view>
+    <view class="isFirst cu-modal {{isFirstModal?'show':''}}" bindtap="hideModalFirst">
+        <view class="block">
+            <view class="icon iconfont iconxiangzuohuadong"></view>
+            <view class="text">向左滑动开始做题~</view>
+        </view>
+    </view>
+</view>

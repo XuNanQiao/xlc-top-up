@@ -1,0 +1,153 @@
+page {
+    background-color: #fff;
+    height: 100%;
+}
+
+.pannel {
+    .tabbar {
+        overflow: hidden;
+        padding: 0 30rpx;
+        line-height: 30rpx;
+        margin-top: 22rpx;
+
+        .switch {
+            float: left;
+            font-size: 30rpx;
+            color: #222;
+
+            .iconfont {
+                color: #1296DB;
+                font-size: 30rpx;
+
+            }
+
+
+        }
+
+        .kcList-block {
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 3;
+
+            .kclist {
+                width: 200rpx;
+                background: rgba(255, 255, 255, 1);
+                box-shadow: 0rpx 2rpx 8rpx 0rpx rgba(79, 128, 174, 0.2);
+                border-radius: 5rpx;
+                position: absolute;
+                left: 20rpx;
+                top: 65rpx;
+                padding: 15rpx 0;
+                padding-left: 45rpx;
+                text-align: left;
+                font-size: 28rpx;
+                color: #333;
+
+                .on {
+                    color: #00A2E9;
+                }
+
+                .kc-item {
+                    line-height: 57rpx;
+                }
+            }
+        }
+
+        .kc {
+            float: right;
+            font-size: 28rpx;
+            color: #666666;
+        }
+    }
+
+    .list {
+        margin-top: 20rpx;
+
+        .item {
+            width: 690rpx;
+            height: 150rpx;
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0rpx 0rpx 8rpx 0rpx rgba(80, 129, 174, 0.2);
+            border-radius: 10rpx;
+            margin: 0rpx auto 20rpx;
+            padding: 30rpx;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .leftBox {
+                .title {
+                    color: #343434;
+                    font-size: 28rpx;
+                    font-family: Source Han Sans CN;
+                    font-weight: 500;
+                    line-height: 28rpx;
+                    margin-bottom: 40rpx;
+                }
+
+                .number {
+                    overflow: hidden;
+
+                    .num-item {
+                        color: #9A9A9A;
+                        font-size: 24rpx;
+                        margin-right: 32rpx;
+                        line-height: 24rpx;
+                        display: inline-block;
+                    }
+                }
+            }
+
+            .item-btn {
+                width: 150rpx;
+                height: 52rpx;
+                background: linear-gradient(90deg, rgba(32, 150, 241, 1) 0%, rgba(99, 185, 251, 1) 100%);
+                border-radius: 26rpx;
+                text-align: center;
+                color: #fff;
+                font-size: 24rpx;
+                line-height: 52rpx;
+            }
+        }
+    }
+}
+
+.isNull {
+    .isNull-img {
+        width: 247rpx;
+        height: 200rpx;
+        margin: auto;
+        margin-top: 256rpx;
+
+        image {
+            width: 247rpx;
+            height: 200rpx;
+        }
+    }
+
+    .isNull-text {
+        width: 363rpx;
+        margin: auto;
+        font-size: 26rpx;
+        color: #999;
+        margin-top: 60rpx;
+        margin-bottom: 50rpx;
+        text-align: center;
+    }
+
+    .isNull-btn {
+        width: 230rpx;
+        height: 58rpx;
+        background: linear-gradient(0deg, rgba(35, 87, 255, 1) 0%, rgba(61, 126, 255, 1) 100%);
+        border-radius: 8rpx;
+        text-align: center;
+        font-size: 26rpx;
+        color: #fff;
+        line-height: 58rpx;
+        margin: auto;
+    }
+}

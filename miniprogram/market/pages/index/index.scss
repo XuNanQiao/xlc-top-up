@@ -1,0 +1,230 @@
+page {
+  background-color: #F7F7F7;
+}
+
+.preferentialIndex {
+  .nav {
+    font-size: 30rpx;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: rgba(51, 51, 51, 1);
+    width: 100%;
+    height: 70rpx;
+    background: rgba(255, 255, 255, 1);
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+
+    .item {
+      padding: 0rpx 15rpx;
+    }
+
+    .tapOn {
+      content: "";
+      width: 80%;
+      height: 6rpx;
+      margin: 15rpx auto 0rpx;
+      border-radius: 3rpx;
+      background: #3c7cfc;
+    }
+  }
+
+  .CarBoxs {
+    .carBoxlist {
+      margin-top: 10rpx;
+      width: 100%;
+      background: rgba(255, 255, 255, 1);
+      padding-top: 22rpx;
+
+      .endTimeDown {
+        font-size: 18rpx;
+        font-family: Source Han Sans CN;
+        font-weight: 300;
+        color: rgba(51, 51, 51, 1);
+        display: flex;
+        padding: 0rpx 33rpx;
+        line-height: 36rpx;
+
+        .timeBox {
+          display: flex;
+          align-items: center;
+
+          .time {
+            padding: 0rpx 5rpx;
+            height: 36rpx;
+            background: rgba(104, 102, 100, 1);
+            border-radius: 6rpx;
+            font-size: 26rpx;
+            color: #FFFFFF !important;
+            margin: 0rpx 10rpx;
+          }
+
+          .fenGe {
+            line-height: 36rpx;
+            font-size: 26rpx;
+            font-weight: bold;
+            color: rgba(51, 51, 51, 1);
+          }
+        }
+
+
+
+      }
+
+      .carContent {
+        height: 184rpx;
+        padding: 0 20rpx;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+
+        .carImg {
+          width: 249rpx;
+          height: 140rpx;
+          margin-right: 21rpx;
+        }
+
+        .datile {
+          width: calc(100% - 270rpx);
+          height: 140rpx;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: flex-start;
+
+          .title {
+            width: 100%;
+            font-size: 28rpx;
+            line-height: 32rpx;
+            color: rgba(51, 51, 51, 1);
+            /*      overflow: hidden; //超出一行文字自动隐藏
+            text-overflow: ellipsis; //文字隐藏后添加省略号
+            white-space: nowrap; //强制不换行 */
+          }
+
+          .originalPrice {
+            padding: 0 8rpx;
+            height: 34rpx;
+            line-height: 34rpx;
+            background: rgba(238, 238, 238, 1);
+            border-radius: 1rpx;
+            font-size: 20rpx;
+            font-family: Source Han Sans CN;
+            font-weight: 400;
+            color: rgba(153, 153, 153, 1);
+          }
+
+          .last {
+            margin-left: 1rpx;
+            width: 100%;
+
+            .priceName {
+              display: inline-block;
+              font-size: 20rpx;
+              font-family: Source Han Sans CN;
+              font-weight: 400;
+              color: rgba(153, 153, 153, 1);
+            }
+
+            .price {
+              display: inline-block;
+              font-size: 30rpx;
+              line-height: 30rpx;
+              font-weight: 500;
+              color: rgba(243, 116, 68, 1);
+            }
+
+            .oldPrice {
+              margin-left: 19rpx;
+              display: inline-block;
+              font-size: 20rpx;
+              font-family: Source Han Sans CN;
+              font-weight: 400;
+              text-decoration: line-through;
+              color: rgba(153, 153, 153, 1);
+            }
+
+            .people {
+              margin-left: 19rpx;
+              display: inline-block;
+              padding: 0 6rpx;
+              font-size: 22rpx;
+              height: 28rpx;
+              line-height: 28rpx;
+              background: rgba(255, 236, 229, 1);
+              border-radius: 2rpx;
+              color: rgba(246, 153, 118, 1);
+            }
+          }
+        }
+
+        .carButton {
+          width: 130rpx;
+          height: 42rpx;
+          line-height: 42rpx;
+          text-align: center;
+          background: linear-gradient(90deg,
+              rgba(31, 150, 241, 1) 0%,
+              rgba(90, 181, 251, 1) 100%);
+          border-radius: 21rpx;
+          font-size: 22rpx;
+          font-family: Source Han Sans CN;
+          font-weight: 400;
+          color: rgba(255, 255, 255, 1);
+          align-self: flex-end;
+          margin-bottom: 26rpx;
+        }
+
+        .carNo {
+          color: rgba(168, 171, 190, 1);
+        }
+      }
+
+      .rightBut {
+        margin: 10rpx 16rpx 0rpx 0rpx;
+        float: right;
+        width: 110rpx;
+        height: 36rpx;
+        line-height: 36rpx;
+        text-align: center;
+        background: linear-gradient(45deg, rgba(35, 87, 255, 1) 0%, rgba(61, 126, 255, 1) 100%);
+        border-radius: 6rpx;
+        font-size: 22rpx;
+        font-family: Source Han Sans CN;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 1);
+      }
+    }
+
+    .BgCarBoxs {
+      height: 190rpx;
+
+      .originalPriceBox {
+        display: flex;
+      }
+
+      .discount {
+        margin-left: 20rpx;
+        font-size: 20rpx;
+        font-family: Source Han Sans CN;
+        font-weight: 400;
+        color: rgba(241, 88, 23, 1);
+        height: 34rpx;
+        line-height: 34rpx;
+        padding: 0 16rpx;
+        background: rgba(255, 255, 255, 1);
+        border: 1rpx solid rgba(241, 88, 23, 1);
+        border-radius: 4rpx;
+      }
+
+      .yypeople {
+        font-size: 22rpx;
+        font-family: Source Han Sans CN;
+        font-weight: 400;
+        color: rgba(168, 171, 190, 1);
+        margin-left: 19rpx;
+        display: inline-block;
+      }
+    }
+  }
+}

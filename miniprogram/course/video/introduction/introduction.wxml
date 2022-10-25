@@ -1,0 +1,59 @@
+<!--course/video/introduction/introduction.wxml-->
+<view class="classIntro {{CouponsModal=='CouponsModal'?'playerHide':''}}" wx:if="{{course!=null}}">
+  <view id="player"
+  class="palyBack" style="background:url({{course.img}});visibility:{{usebg?'visible':'hidden'}}" >
+
+    <studioVhall wx:if="{{course.trialVideoConfig!=null}}" vallConfigUrl="{{course.trialVideoConfig}}"
+      nickName="{{userInfo.nickName}}"></studioVhall>
+  </view>
+  <view class=" intro text-xl padding bg-white margin-top-sm">
+    <view class="title text-black">{{course.title}}</view>
+  </view>
+
+  <view class="price padding bg-white" style="padding-top:0;">
+    <view>
+      <view class="cu-tag line-orange radius sm margin-right-sm">点播</view>
+      <text class="text-df">VIP课程</text>
+    </view>
+    <view style="overflow: hidden;margin-top: 19rpx;">
+      <view class="text-price text-red margin-top-xs fl">{{course.price==null?0:course.price}}</view>
+      <view class="text-vouchers text-red margin-top-xs fr" wx:if="{{course.price!=null}}" bindtap="CouponsModalClick">
+        领券
+        <text class="lg cuIcon-right" />
+      </view>
+    </view>
+  </view>
+
+  <scroll-view scroll-x class="bg-white nav margin-top-sm" scroll-with-animation :scroll-left="scrollLeft">
+    <view class="cu-item  {{index==TabCur?'text-blue cur':''}}" wx:for="{{nav}}" wx:key="index" data-index="{{index}}"
+      bindtap="tabSelect">{{item}}</view>
+  </scroll-view>
+  <view class="pannel classIntro bg-white" wx:if="{{nav[TabCur]=='课程概述'}}">
+    <rich-text nodes="{{course.content}}"></rich-text>
+  </view>
+  <view class="pannel padding bg-white text-sm" wx:elif="{{nav[TabCur]=='课程列表'}}">
+    <view class="videoList padding-lr-sm text-grey">
+      <view class="content-title padding-tb-sm solids-bottom" wx:for="{{course.videoGroups}}" wx:key="index">
+        <view class="chapter text-df text-black" bindtap="openChapter" data-id="{{item.id}}">
+          <text class="cuIcon-sort margin-right-xs"></text>
+          {{item.title}}
+          <text class="fr {{uhide==item.id?'cuIcon-fold':'cuIcon-unfold'}}"></text>
+        </view>
+        <view class="ilist padding-lr-sm" wx:if="{{uhide==item.id}}">
+          <view class="ilist-item" wx:for-item="section" wx:for="{{item.videos}}" wx:key="index">
+            <view class="title" data-id="{{section.id}}" bindtap="play">
+              <text class="cuIcon-playfill"></text>
+              {{section.title}}
+            </view>
+            <view class="butList">
+              <!-- <view bindtap="getHomeWork" data-examid="{{section.id}}" class="butList-item">随堂测试</view> -->
+              <view class="butList-item" bindtap="download" data-id="{{section.id}}">随堂资料</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <order price="{{course.price}}" class="buy" gettype="{{3}}" itemId="{{course.id}}" itemType="{{1}}" />
+  <CouponsPro bindgetCouponsModal="getCouponsModal"  proType="{{1}}"  productId="{{course.id}}" modalName="{{CouponsModal}}" />
+</view>

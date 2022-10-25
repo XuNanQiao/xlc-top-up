@@ -1,0 +1,195 @@
+<!--mine/myCoupon/myCoupon.wxml-->
+<wxs src="../../filter/DateFmt.wxs" module="DateFmt"></wxs>
+
+<view class="coupons">
+  <view class="givingTab">
+    <view class="tabList {{tabChoose==1?'tabon':''}}" data-val="{{1}}" bindtap="clickBtn">
+      未使用({{couponsList1.length}})
+      <view class="line"></view>
+    </view>
+    <view class="tabList {{tabChoose==2?'tabon':''}}" data-val="{{2}}" bindtap="clickBtn">
+      已使用({{couponsList2.length}})
+      <view class="line"></view>
+    </view>
+    <view class="tabList {{tabChoose==3?'tabon':''}}" data-val="{{3}}" bindtap="clickBtn">
+      已过期({{couponsList3.length}})
+      <view class="line"></view>
+    </view>
+    <view class="tabList {{tabChoose==4?'tabon':''}}" data-val="{{4}}" bindtap="clickBtn">
+      兑换券
+      <view class="line"></view>
+    </view>
+  </view>
+
+  <view>
+    <view class="DontUse tabCar" wx:if="{{tabChoose==1}}">
+      <view wx:for="{{couponsList1}}" wx:key="index">
+        <view class="Carlist" wx:if="{{item.remainDays>0}}">
+          <view class="CarListContent">
+            <view class="money">
+              <view class="number">
+                <text class="moneyLog">￥</text>
+                {{item.marketingCoupons.preferentialAmount}}
+              </view>
+              <view class="moneyType" wx:if="{{item.marketingCoupons.type == 2}}">满减券</view>
+              <view class="moneyType" wx:if="{{item.marketingCoupons.type == 1}}">无门槛券</view>
+            </view>
+
+            <view class="contentTitle">
+              <view class="title">{{item.marketingCoupons.name}}</view>
+              <view class="time" wx:if="{{item.remainDays==1}}">
+                今天{{DateFmt.toFmt(item.marketingCoupons.endTime,'HH:mm')}}到期
+              </view>
+              <view class="time" wx:elif="{{item.remainDays==2}}">
+                明天{{DateFmt.toFmt(item.marketingCoupons.endTime,'HH:mm')}}到期</view>
+              <view class="time" wx:elif="{{item.remainDays==3}}">还剩{{item.remainDays}}天到期</view>
+              <view class="time" style="color:#878D9D" wx:else>
+                {{ DateFmt.toFmt(item.marketingCoupons.endTime,'yyyy.MM.dd HH:mm')}}到期</view>
+            </view>
+            <view class="contentBut" bindtap="PutMarketCode">立即使用</view>
+          </view>
+          <view class="box"></view>
+          <view class="boxRight"></view>
+          <view class="CarListTip">
+            <!-- 无门槛券 -->
+            <view wx:if="{{item.marketingCoupons.type==1}}">
+              <!-- 指定 -->
+              <view class="text" wx:if="{{item.marketingCoupons.scopeType == 2}}">仅适用于{{item.scopeName}}商品使用！</view>
+              <!-- 通用 -->
+              <view class="text" wx:else>适用于全部商品！</view>
+            </view>
+            <!-- 满减券 -->
+            <view wx:else>
+              <view class="text">
+                满{{item.marketingCoupons.limitFullPrice}}元减{{item.marketingCoupons.preferentialAmount}}元</view>
+            </view>
+            <view class="rule" data-url="{{'/mine/couponRule/couponRule?id='+item.marketingCoupons.id}}"
+              bindtap="goNext">
+              使用规则
+              <text class="cuIcon-right"></text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="isNull" wx:if="{{couponsList1.length==0}}">
+        <view class="img">
+          <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/order/havenot.png" />
+        </view>
+        <view class="text">暂无优惠券哦~</view>
+      </view>
+    </view>
+    <view class="DontUse tabCar" wx:if="{{tabChoose==2}}">
+      <view wx:for="{{couponsList2}}" wx:key="index">
+        <view class="Carlist Expired" wx:if="{{item.marketingCoupons.type!= 3}}">
+          <view class="CarListContent">
+            <view class="money">
+              <view class="number">
+                <text class="moneyLog">￥</text>
+                {{item.marketingCoupons.preferentialAmount}}
+              </view>
+              <view class="moneyType" wx:if="{{item.marketingCoupons.type == 2}}">满减券</view>
+              <view class="moneyType" wx:if="{{item.marketingCoupons.type == 1}}">无门槛券</view>
+            </view>
+
+            <view class="contentTitle">
+              <view class="title">{{item.marketingCoupons.name}}</view>
+              <view class="time">{{DateFmt.toFmt(item.marketingCoupons.endTime,'yyyy.MM.dd HH:mm')}}到期</view>
+            </view>
+
+            <view class="icon">
+              <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/components/draw-icon1.png" />
+            </view>
+          </view>
+          <view class="box"></view>
+          <view class="boxRight"></view>
+          <view class="CarListTip">
+            <!-- 无门槛券 -->
+            <view wx:if="{{item.marketingCoupons.type==1}}">
+              <!-- 指定 -->
+              <view class="text" wx:if="{{item.marketingCoupons.scopeType == 2}}">仅适用于{{item.scopeName}}商品使用！</view>
+              <!-- 通用 -->
+              <view class="text" wx:else>适用于全部商品！</view>
+            </view>
+            <!-- 满减券 -->
+            <view wx:else>
+              <view class="text">
+                满{{item.marketingCoupons.limitFullPrice}}元减{{item.marketingCoupons.preferentialAmount}}元</view>
+            </view>
+            <view class="rule" data-url="{{'/mine/couponRule/couponRule?id='+item.marketingCoupons.id}}"
+              bindtap="goNext">
+              使用规则
+              <text class="cuIcon-right"></text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="isNull" wx:if="{{couponsList2.length==0}}">
+        <view class="img">
+          <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/order/havenot.png" />
+        </view>
+        <view class="text">暂无优惠券哦~</view>
+      </view>
+    </view>
+    <view class="DontUse tabCar" wx:if="{{tabChoose==3}}">
+      <view class="Carlist Expired" wx:for="{{couponsList3}}" wx:key="index">
+        <view class="CarListContent">
+          <view class="money">
+            <view class="number">
+              <text class="moneyLog">￥</text>
+              {{item.marketingCoupons.preferentialAmount}}
+            </view>
+            <view class="moneyType" wx:if="{{item.marketingCoupons.type == 2}}">满减券</view>
+            <view class="moneyType" wx:if="{{item.marketingCoupons.type == 1}}">无门槛券</view>
+          </view>
+
+          <view class="contentTitle">
+            <view class="title">{{item.marketingCoupons.name}}</view>
+            <view class="time">{{DateFmt.toFmt(item.marketingCoupons.endTime,'yyyy.MM.dd HH:mm')}}到期</view>
+          </view>
+
+          <view class="icon">
+            <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/components/draw-icon2.png" />
+          </view>
+        </view>
+        <view class="box"></view>
+        <view class="boxRight"></view>
+        <view class="CarListTip">
+          <!-- 无门槛券 -->
+          <view wx:if="{{item.marketingCoupons.type==1}}">
+            <!-- 指定 -->
+            <view class="text" wx:if="{{item.marketingCoupons.scopeType == 2}}">仅适用于{{item.scopeName}}商品使用！</view>
+            <!-- 通用 -->
+            <view class="text" wx:else>适用于全部商品！</view>
+          </view>
+          <!-- 满减券 -->
+          <view wx:else>
+            <view class="text">满{{item.marketingCoupons.limitFullPrice}}元减{{item.marketingCoupons.preferentialAmount}}元
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="isNull" wx:if="{{couponsList3.length==0}}">
+        <view class="img">
+          <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/order/havenot.png" />
+        </view>
+        <view class="text">暂无优惠券哦~</view>
+      </view>
+    </view>
+    <view class="Redeemcode" wx:if="{{tabChoose==4}}">
+      <view class="redeem-block">
+        <view class="redeem-item">
+          <text class="left fl">兑换码:</text>
+          <input class="input fl" type="text" placeholder="请输入兑换码" bindblur="Redeemcode" />
+        </view>
+        <view class="redeem-item">
+          <text class="left fl">验证码:</text>
+          <input class="codeInput input fl" type="text" placeholder="请输入验证码" bindblur="ValidCode" />
+          <valid fontSize="{{3}}" bindupdate="Code" style="margin-top: 8rpx;"></valid>
+        </view>
+        <view class="redeem-btn" bindtap="submit">立即兑换</view>
+      </view>
+    </view>
+  </view>
+</view>

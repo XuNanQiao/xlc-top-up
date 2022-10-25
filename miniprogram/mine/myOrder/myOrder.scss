@@ -1,0 +1,117 @@
+page {
+  background-color: #fff;
+}
+
+.myOrder {
+  padding-top: 20rpx;
+}
+
+.item {
+  width: 690rpx;
+  height: 290rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 1rpx 1rpx 10rpx 0rpx rgba(88, 142, 241, 0.2);
+  border-radius: 10rpx;
+  margin: 0rpx auto 20rpx;
+  padding: 30rpx;
+
+  .topText {
+    overflow: hidden;
+    line-height: 20rpx;
+    font-size: 20rpx;
+    font-family: Source Han Sans CN;
+
+    .number {
+      font-weight: 300;
+      color: rgba(154, 154, 154, 1);
+    }
+
+    .state {
+
+      font-weight: 400;
+      color: rgba(0, 206, 134, 1);
+    }
+
+    .text-orange {
+      color: #F15817 !important;
+    }
+  }
+
+  .orderId {
+    font-size: 24rpx;
+    line-height: 24rpx;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: rgba(51, 51, 51, 1);
+    margin-top: 16rpx;
+  }
+
+  .conts {
+    overflow: hidden;
+    background-color: #f8fafe;
+    display: flex;
+    margin-top: 20rpx;
+    height: 120rpx;
+
+    .img {
+      width: 211rpx;
+      height: 120rpx;
+      border-radius: 6rpx;
+      margin-right: 20rpx;
+      overflow: hidden;
+      flex-shrink: 0;
+
+      image {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .neirong {
+      overflow: hidden;
+      width: 450rpx;
+
+
+      .text {
+        width: 100%;
+        height: 100%;
+
+        .item-title {
+          font-size: 28rpx;
+          line-height: 28rpx;
+          font-family: Source Han Sans CN;
+          font-weight: 400;
+          color: rgba(51, 51, 51, 1);
+        }
+
+        .orderTime {
+          font-size: 20rpx;
+          line-height: 20rpx;
+          font-family: Source Han Sans CN;
+          font-weight: 300;
+          color: rgba(153, 153, 153, 1);
+          margin-right: 20rpx;
+          margin-top: 37rpx;
+
+          &:last-child {
+            margin-top: 16rpx;
+
+          }
+        }
+      }
+    }
+  }
+
+  .totalPrice {
+    font-size: 20rpx;
+    font-family: Source Han Sans CN;
+    font-weight: 300;
+    color: rgba(241, 88, 23, 1);
+    text-align: right;
+    margin-top: 18rpx;
+
+    .totalPriceText {
+      color: rgba(153, 153, 153, 1);
+    }
+  }
+}

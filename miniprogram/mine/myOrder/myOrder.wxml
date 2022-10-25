@@ -1,0 +1,39 @@
+<!--mine/myOrder/myOrder.wxml-->
+<wxs src="../../filter/DateFmt.wxs" module="DateFmt"></wxs>
+
+<view class="myOrder">
+  <view wx:for="{{orderList}}" wx:key="index">
+    <view class="item" bindtap="goNext" data-url="{{'/mine/myOrderDetail/myOrderDetail?orderId='+item.orderId}}">
+      <view class="topText">
+        <view class="number fl">订单编号</view>
+        <view class="state text-orange fr" wx:if="{{item.status == 0}}">待支付</view>
+        <view class="state text-orange fr" wx:if="{{item.status == 1}}">订单关闭</view>
+        <view class="state  fr" wx:if="{{item.status == 2}}">支付成功</view>
+      </view>
+      <view class="orderId" hover-class="none" hover-stop-propagation="false">
+        {{item.orderId}}
+      </view>
+      <view wx:for-item="oItem" wx:for="{{item.orderItems}}" wx:key="index">
+        <view class="conts" wx:if="{{oItem!=null}}">
+          <view class="img fl">
+            <image src="{{oItem.itemImg}}" mode="aspectFill" />
+          </view>
+          <view class="neirong fl">
+            <view class="text">
+              <view class="item-title ellipsis">{{oItem.itemName}}</view>
+              <view class="orderTime" wx:if="{{item.status == 2}}">
+                <text class="timeText"> 支付时间</text>
+                {{ DateFmt.toFmt(item.orderFinishTime,'yyyy.MM.dd HH:mm:ss ')}}
+              </view>
+              <view class="orderTime">
+                <text class="timeText"> 优惠金额</text>
+                ￥{{item.totalPrice-item.fullPrice}}
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="totalPrice"><text class="totalPriceText"> 实付金额</text> ¥ {{item.totalPrice}}</view>
+    </view>
+  </view>
+</view>

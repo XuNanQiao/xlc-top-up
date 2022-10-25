@@ -1,0 +1,27 @@
+var noEscapeChar = function(s) {
+  if (s) {
+    var reg = getRegExp("&([^&;]+);","g");
+    s = s.replace(reg, '');
+    return s;
+  }
+};
+
+var restyleImg= function(html){
+  return html;
+}
+
+var olToAbc = function(html){
+  return html;
+}
+
+var processAll = function(html) {
+  html = noEscapeChar(html);
+  html = restyleImg(html);
+  html = olToAbc(html);
+  return html;
+}
+
+module.exports.noEscapeChar = noEscapeChar;
+module.exports.restyleImg = restyleImg;
+module.exports.olToAbc = olToAbc;
+module.exports.processAll = processAll;

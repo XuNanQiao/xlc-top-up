@@ -1,0 +1,99 @@
+<view class="pannel">
+    <view class="tabbar">
+        <view class="switch" bindtap="showKcList" data-kcisshow="{{true}}">
+            切换课程
+            <text class="iconfont iconqiehuan1" bindtap="showKcList" data-kcisshow="{{true}}"></text>
+        </view>
+        <view class="kcList-block" wx:if="{{kcIsShow}}" bindtap="showKcList" data-kcisshow="{{false}}">
+            <view class="kclist">
+                <view class="kc-item {{onKcItem.name==item.name?'on':''}}" wx:for="{{kcList}}" wx:key="index" bindtap="chackKc" data-kcitem="{{item}}">
+                    {{item.name}}
+                </view>
+            </view>
+        </view>
+        <view class="kc">公共课：{{onKcItem.name}}</view>
+    </view>
+    <view class="section">
+        <view class="img">
+            <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/analysis/DailyTraining-img1.png" />
+        </view>
+        <view class="text">
+            <view>精选专升本必会试题，利用碎片时间，每天5道。提高升本竞争力！</view>
+            <view>本练习搭配【视频考点解析】更快掌握错题知识点。</view>
+        </view>
+        <navigator url="/questionBank/DailyTraining/question/index" class="section-btn" wx:if="{{!myDailyPractice.hasDone}}">
+            去练习
+        </navigator>
+        <view class="section-btn gray" wx:else>已练习</view>
+    </view>
+    <view class="my-testing" wx:if="{{myDailyPractice.hasDone}}">
+        <view class="my-testing-title">
+            ———
+            <text>我的测试</text>
+            ———
+        </view>
+        <view class="my-testing-block">
+            <view class="info">
+                <view class="uPic">
+                    <image src="{{myDailyPractice.userAvatar}}" />
+                </view>
+                <view class="name">{{myDailyPractice.userNickName}}</view>
+            </view>
+            <view class="num-block">
+                <view class="num-item fl">
+                    <view class="num">{{myDailyPractice.seconds}}</view>
+                    <view class="text">耗时</view>
+                </view>
+                <view class="num-item fl">
+                    <view class="num">{{myDailyPractice.questionCount}}</view>
+                    <view class="text">题数</view>
+                </view>
+                <view class="num-item fr">
+                    <view class="num">{{myDailyPractice.rightRate}}%</view>
+                    <view class="text">正确率</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="testing-list" wx:if="{{dailyPracticeList.length>0}}">
+        <view class="testing-tabbar">
+            <view class="left fl">今日测试：{{dailyPracticeList.length}}人</view>
+            <view class="right fr" bindtap="chackDesc" data-desc="{{!desc}}">
+                <view wx:if="{{desc}}">
+                    顺序查看
+                    <view class="img fr">
+                        <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/analysis/DailyTraining-icon1.png" />
+                    </view>
+                </view>
+                <view wx:else>
+                    倒叙查看
+                    <view class="img fr">
+                        <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/analysis/DailyTraining-icon2.png" />
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="testing-block" wx:for="{{dailyPracticeList}}" wx:key="index">
+            <view class="info">
+                <view class="uPic">
+                    <image src="{{item.userAvatar}}" />
+                </view>
+                <view class="name">{{item.userNickName}}</view>
+            </view>
+            <view class="num-block">
+                <view class="num-item fl">
+                    <view class="num">{{item.seconds}}</view>
+                    <view class="text">耗时</view>
+                </view>
+                <view class="num-item fl">
+                    <view class="num">{{item.questionCount}}</view>
+                    <view class="text">题数</view>
+                </view>
+                <view class="num-item fr">
+                    <view class="num">{{item.rightRate*100}}%</view>
+                    <view class="text">正确率</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

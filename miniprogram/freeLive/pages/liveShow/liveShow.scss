@@ -1,0 +1,233 @@
+page {
+  background-color: #fff;
+}
+
+.navList {
+  .onThis {
+    color: rgba(35, 87, 255, 1) !important;
+  }
+
+  .navItem {
+    font-size: 36rpx;
+    font-family: Source Han Sans CN;
+    font-weight: 500;
+    color: rgba(51, 51, 51, 1);
+    display: inline-block;
+    line-height: 36rpx;
+    margin-top: 27rpx;
+
+    &:not(:last-child) {
+      margin-right: 88rpx;
+    }
+  }
+}
+
+.dayTimeBack {
+  margin: 40rpx 0rpx 0rpx;
+  height: 178rpx;
+  background: linear-gradient(0deg, rgba(95, 133, 255, 0.36) 0%, rgba(35, 87, 255, 0.36) 91%);
+  border-radius: 20rpx;
+
+  .dayTime {
+    width: 100%;
+    height: 170rpx;
+    background: linear-gradient(0deg, rgba(95, 133, 255, 1) 0%, rgba(35, 87, 255, 1) 100%);
+    border-radius: 20rpx;
+
+    .dayList {
+      height: 170rpx;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 36rpx;
+
+      .dayItem {
+        .dayNum {
+          width: 68rpx;
+          height: 68rpx;
+          line-height: 68rpx;
+          text-align: center;
+          border: 1rpx solid rgba(216, 225, 255, 1);
+          border-radius: 50%;
+          font-size: 28rpx;
+          font-family: Source Han Sans CN;
+          font-weight: 400;
+          color: rgba(216, 225, 255, 1);
+
+        }
+
+        .onThisDay {
+          background: #FFFFFF !important;
+          color: rgba(35, 87, 255, 1) !important;
+        }
+
+        .week {
+          margin-top: 20rpx;
+          text-align: center;
+          font-size: 28rpx;
+          font-family: Source Han Sans CN;
+          font-weight: 400;
+          color: rgba(216, 225, 255, 1);
+        }
+      }
+    }
+  }
+}
+
+.freeLiveIndex {
+  padding: 0rpx 30rpx;
+
+  .liveGrounp {
+    margin-top: 45rpx;
+
+    .GrounpTitle {
+      font-size: 24rpx;
+      font-family: Source Han Sans CN;
+      font-weight: 300;
+      color: rgba(51, 51, 51, 1);
+      line-height: 80rpx;
+      height: 80rpx;
+      margin-left: 41rpx;
+    }
+  }
+
+  .liveList {
+    .liveItem {
+      width: 690rpx;
+      height: 241rpx;
+      background: rgba(255, 255, 255, 1);
+      box-shadow: 0rpx 0rpx 12rpx 0rpx rgba(0, 0, 0, 0.08);
+      border-radius: 20rpx;
+      margin-bottom: 20rpx;
+
+      .itemLeft {
+        float: left;
+        width: 424rpx;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        height: 100%;
+        padding-bottom: 35rpx;
+
+        .typeTime {
+          padding-left: 40rpx;
+          margin-top: 30rpx;
+          line-height: 34rpx;
+          height: 38rpx;
+          border-left: 6rpx solid #2357FF;
+
+          .type {
+            display: inline-block;
+            padding: 0 11rpx;
+            height: 34rpx;
+            text-align: center;
+            background: rgba(229, 235, 255, 1);
+            border-radius: 17rpx 0rpx 17rpx 0rpx;
+            font-size: 23rpx;
+            font-family: Source Han Sans CN;
+            font-weight: 400;
+            color: rgba(35, 87, 255, 1);
+          }
+
+          .appointment {
+            color: #1ab517 !important;
+            background: #d6f4d1 !important;
+          }
+
+          .playback {
+            color: rgba(255, 123, 35, 1);
+            background: rgba(255, 238, 229, 1);
+          }
+
+          .time {
+            margin-left: 32rpx;
+            display: inline-block;
+            font-size: 24rpx;
+            font-family: Source Han Sans CN;
+            font-weight: 300;
+            color: rgba(102, 102, 102, 1);
+          }
+        }
+
+        .title {
+          margin-top: 25rpx;
+          padding-left: 40rpx;
+          font-size: 30rpx;
+          line-height: 33rpx;
+          font-family: Source Han Sans CN;
+          font-weight: 400;
+          color: rgba(51, 51, 51, 1);
+        }
+
+        .peopleNumber {
+          margin-top: 27rpx;
+          padding-left: 40rpx;
+          font-size: 24rpx;
+          font-family: Source Han Sans CN;
+          font-weight: 300;
+          color: rgba(102, 102, 102, 1);
+        }
+      }
+
+      .itemRight {
+        float: right;
+        margin-right: 15rpx;
+
+        .itemImg {
+          margin-top: 14rpx;
+          width: 161rpx;
+          height: 211rpx;
+          border-radius: 10rpx;
+        }
+
+        .state {
+          width: 180rpx;
+          height: 52rpx;
+          position: absolute;
+          margin-top: -39rpx;
+          margin-left: -5rpx;
+          background: rgba(35, 87, 255, 1);
+          border-radius: 20rpx 0rpx 20rpx 0rpx;
+          font-size: 23rpx;
+          font-weight: 300;
+          color: rgba(255, 255, 255, 1);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .stateIcon {
+            display: inline-block;
+            margin-right: 13rpx;
+            line-height: 70rpx;
+          }
+
+          .text {
+            display: inline-block;
+          }
+        }
+      }
+
+    }
+  }
+
+  .hasNot {
+    font-size: 26rpx;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: rgba(153, 153, 153, 1);
+
+    .hasNotImg {
+
+      width: 254rpx;
+      height: 199rpx;
+      margin: 120rpx auto 0rpx;
+      display: block;
+
+    }
+
+    .hasNotText {
+      margin: 60rpx 190rpx 0rpx;
+      text-align: center;
+    }
+  }
+}

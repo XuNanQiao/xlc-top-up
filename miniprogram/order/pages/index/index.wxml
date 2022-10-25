@@ -1,0 +1,96 @@
+<!--order/pages/index/index.wxml-->
+<wxs src="../../../filter/DateFmt.wxs" module="DateFmt"></wxs>
+
+<view class="order padding-top-sm" wx:if="{{order.orderItems!=null}}">
+  <view class="item cu-card bg-white">
+    <navigator wx:for="{{order.orderItems}}" wx:key="index" :url="getNavUrl(item.itemId,item.itemType)"
+      class="flex padding">
+      <view class="basis-sm">
+        <image class="itemImg" src="{{item.itemImg}}" />
+      </view>
+      <view class="basis-lg margin-left-sm">
+        <view class="itemTitle">{{item.itemName}}</view>
+        <view class="itemTags">
+          <view class="cu-tag radius sm line-mauve">{{olderTypeNum[item.itemType]}}</view>
+          <view class="cu-tag radius sm line-orange">VIP</view>
+        </view>
+        <view class="text-price text-red margin-top-xs">{{item.itemPrice}}元</view>
+      </view>
+    </navigator>
+  </view>
+  <view>
+    <view class="cu-dialog">
+      <view class="modal-title">
+        <view class="text">优惠券</view>
+
+      </view>
+      <view class="modal-block">
+        <view wx:if="{{!couponsList.length>0}}" class="isNull">
+          <view class="img">
+            <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/components/isNull.png" />
+          </view>
+          <view class="text">您暂无可以使用的优惠券</view>
+        </view>
+        <view wx:else>
+          <view class="Carlist" wx:for="{{couponsList}}" wx:key="index" bindtap="clickPitchOn" data-index="{{index}}"
+            data-id="{{item.marketingCoupons.id}}">
+            <view class="CarListContent">
+              <view class="money">
+                <view class="number">
+                  <text class="moneyLog">￥</text>
+                  {{item.marketingCoupons.preferentialAmount}}
+                </view>
+                <view class="moneyType" wx:if="{{item.marketingCoupons.type == 2}}">满减券</view>
+                <view class="moneyType" wx:if="{{item.marketingCoupons.type == 1}}">无门槛券</view>
+              </view>
+
+              <view class="contentTitle">
+                <view class="title">{{item.marketingCoupons.name}}</view>
+                <view class="time">
+                  {{ DateFmt.toFmt(item.marketingCoupons.startTime,'yyyy-MM-dd')}}-
+                  {{ DateFmt.toFmt(item.marketingCoupons.endTime,'yyyy-MM-dd')}}
+                </view>
+                <view class="icon">
+                  <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/components/draw.png" />
+                </view>
+              </view>
+              <view class="pitchOn {{pitchOn==item.marketingCoupons.id?' pitchOn-on':''}}">
+                <text class="lg cuIcon-check"></text>
+              </view>
+            </view>
+            <view class="box"></view>
+            <view class="boxRight"></view>
+            <view class="CarListTip">
+              <!-- 无门槛券 -->
+              <view wx:if="{{item.marketingCoupons.type==1}}">
+                <!-- 指定 -->
+                <view class="text" wx:if="{{item.marketingCoupons.scopeType == 2}}">仅适用于{{scopeName}}商品使用！</view>
+                <!-- 通用 -->
+                <view class="text" wx:else>适用于全部商品！</view>
+              </view>
+              <!-- 满减券 -->
+              <view wx:else>
+                <view class="text">
+                  满{{item.marketingCoupons.limitFullPrice}}元减{{item.marketingCoupons.preferentialAmount}}元</view>
+              </view>
+              <view class="rule" data-url="{{'/mine/couponRule/couponRule?id='+item.marketingCoupons.id}}"
+                catchtap="goNext">
+                使用规则
+                <text class="cuIcon-right"></text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="buy cu-bar bg-white tabbar border shop">
+    <view class="text-gray text-center" style="width:100%">微信支付暂时不可用</view>
+    <!-- <view class="action">
+      <view class="text">订单金额：</view>
+      <view class="text-price text-red text-xl" wx:if="{{!coupons}}">{{sumPrice}}</view>
+      <view class="text-price text-red text-xl" wx:else>{{sumPriceDiscount}}</view>
+    </view>
+    <view class=" submit-buy" bindtap="createOrder">马上付款</view> -->
+  </view>
+</view>

@@ -1,0 +1,63 @@
+<!--course/pages/introduction/introduction.wxml-->
+<view class="classIntro {{CouponsModal=='CouponsModal'?'playerHide':''}}">
+  <view id="player" class="palyBack " style="background:url({{course.img}});visibility:{{usebg?'visible':'hidden'}};">
+    <studioVhall wx:if="{{course.trialVideoConfig!=null&&hasthis==true}}" vallConfigUrl="{{course.trialVideoConfig}}"
+      nickName="{{userInfo.nickName}}"></studioVhall>
+  </view>
+  <view class="intro text-xl bg-white margin-top-sm">
+    <view class="title text-black">{{course.title}}</view>
+  </view>
+
+  <view class="price bg-white">
+    <view class="cu-tag line-blue radius sm margin-right-sm">直播</view>
+    <text class="text">VIP课程</text>
+    <view class="text-price">
+      {{course.price==null?0:course.price}}
+      <view class="coupon" bindtap="CouponsModalClick">
+        领券
+        <text class="lg cuIcon-right" />
+      </view>
+    </view>
+  </view>
+
+  <view class="bg-white nav margin-top-sm" style="border-bottom: 1rpx solid #EEEEEE;">
+    <view class="cu-item {{index==TabCur?'tabValOn':''}}" wx:for="{{nav}}" wx:key="index" data-index="{{index}}"
+      bindtap="tabSelect">
+      {{item}}
+    </view>
+  </view>
+  <view class="pannel classIntro bg-white" wx:if="{{nav[TabCur]=='课程概述'}}">
+    <rich-text nodes="{{course.content}}"></rich-text>
+  </view>
+  <view class="pannel padding bg-white text-sm" wx:if="{{nav[TabCur]=='课程列表'}}">
+    <view class="liveList text-grey">
+      <view class="content-title flex margin-tb-sm padding-tb-sm {{clickID==item.id?'onclick':''}}"
+        data-id="{{item.id}}" bindtap="clicked" wx:for="{{course.playbacks}}" wx:key="index">
+        <view class="livetitle text-cut basis-xl">
+          <text class="iconfont iconshiphuise margin-right-sm"> </text>
+          <text class="title-text">{{item.title}}</text>
+          <view wx:if="{{item.liveState!='直播尚未开始'}}" class="duration margin-left-xl text-gray">{{item.duration}}分钟
+          </view>
+        </view>
+        <view class="liveright">
+          <view class="righttext">
+            <!-- <view data-id="{{item.id}}" bindtap="getHomeWork" class="classshow text">课堂练习</view> -->
+            <view wx:if="{{item.liveState=='直播尚未开始'}}" class="classhour">{{item.liveState}}</view>
+            <view wx:elif="{{item.liveState=='回放生成中'}}" class="classhour">{{item.liveState}}</view>
+            <navigator url="{{'./player?id='+item.id+'&liveid='+course.id+'&isLive='+true}}"
+              wx:elif="{{item.liveState=='正在直播'}}" class="classhour text-red">{{item.liveState}}</navigator>
+            <view data-itemid="{{item.id}}" data-courseid="{{course.id}}" bindtap="CheackIsAudition"
+              wx:elif="{{item.trialVideoConfig}}" class="classhour text" style="color:#F15817">免费试听</view>
+            <view data-itemid="{{item.id}}" data-courseid="{{course.id}}" bindtap="CheackIsSegment"
+              wx:elif="{{item.liveState=='观看重播'}}" class="classhour text">
+              {{item.liveState}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <order class="buy" price="{{course.price}}" itemId="{{option.id}}" gettype="{{4}}" itemType="{{2}}" />
+  <CouponsPro bindgetCouponsModal="getCouponsModal" proType="{{2}}" productId="{{course.id}}"
+    modalName="{{CouponsModal}}" scopeName="{{course.title}}" />
+</view>

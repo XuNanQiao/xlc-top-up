@@ -1,0 +1,79 @@
+<!--freeLive/pages/studio/studio.wxml-->
+<view>
+  <view class="course_show">
+    <view class="palyBack" style="background:url({{live.img}});visibility:{{usebg?'visible':'hidden'}}">
+      <view wx:if="{{live.liveConfig && (hasthis==true||(live.price==0)||(!live.price)) && suppressLogin && isPlay}}">
+        <studioVhall vallConfigUrl="{{live.liveConfig}}" nickName="{{userInfo.nickName}}"></studioVhall>
+      </view>
+    </view>
+    <view class="nostart" wx:if="{{(ifLive==1||ifLive==2)&&startyes}}">
+      <image class="nostartimg" src="https://staticfile.xlcwx.com/m-images/images/images/stop.png" />
+      <view class="nostarttext">
+        距开始：
+        <uniCountdown color="#CDCDCD" splitorColor="#CDCDCD" backgroundColor="#393939" day="{{startdata}}"
+          hour="{{starthour}}" minute="{{startminute}}" second="{{startsecond}}" bindtimeup="endtime"></uniCountdown>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{live!=null}}">
+    <!-- //选项卡 -->
+    <view class="bar">
+      <view class="navbar">
+        <view data-val="0" bindtap="navchange">
+          课程详情
+          <view class="{{[navval=='0'? 'tabValAllOn':'']}}"></view>
+        </view>
+        <view data-val="1" bindtap="navchange">
+          分享榜
+          <view class="{{[navval=='1'? 'tabValAllOn':'']}}"></view>
+        </view>
+      </view>
+      <view class="add" bindtap="focusClick">+关注</view>
+    </view>
+    <!-- 分享榜 -->
+
+    <view wx:if="{{navval==1}}" class="share">
+      <!-- 邀请 -->
+      <view class="userInfo">
+        <image class="portrait" src="{{userInfo.uPic}}" mode="aspectFill" />
+        <view class="info">
+          <view class="infoleft">
+            <view class="name">{{userInfo.nickName}}</view>
+            <view class="account">
+              {{sharelistval.mineInvitationCount>0?'已邀请'+sharelistval.mineInvitationCount+'人':'暂无邀请记录'}}</view>
+          </view>
+          <button open-type="share" class="editor" bindtap="invite(6,live.id)">
+            去邀请
+            <view class="buticon cuIcon-right"></view>
+          </button>
+        </view>
+      </view>
+      <!-- 排行 -->
+      <view class="sharelist">
+        <view class="text" wx:if="{{sharelistval.orders.length>0}}">邀请人数</view>
+        <view class="distributors" wx:for="{{sharelistval.orders}}" wx:key="index">
+          <image wx:if="{{index<3}}" class="listimg" :src="listimg[index]" />
+          <view wx:else class="listnum">{{index+1}}</view>
+          <image class="distributorsimg" :src=" item.userAvatar" />
+          <view class="distributorsname">{{item.userNickName}}</view>
+          <view class="sharenum">{{item.invitationCount}}</view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{navval==0}}" class="chating">
+      <view class="noData" wx:if="{{live.content==null}}">暂无课程详情</view>
+      <rich-text nodes="{{live.content}}"></rich-text>
+    </view>
+    <vie class="showbox" wx:if="{{showimg==true&&focus!=null}}">
+      <view class="showimg">
+        <image class="img" src=" {{focus.imgUrl}}" />
+      </view>
+      <view class="closeimg" bindtap="focusClose">
+        <view class="close">
+          <!-- <image src="https://staticfile.xlcwx.com/m-images/liveshow/images/close.png" /> -->
+        </view>
+      </view>
+    </vie>
+  </view>
+</view>

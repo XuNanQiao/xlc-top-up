@@ -1,0 +1,4 @@
+<view class="nickName">
+  <input class="inputBox" value="{{value}}" bindinput="changeModel" data-key="value" placeholder="请输入昵称" />
+  <view class="Determine" bindtap="Determine">确定</view>
+</view>

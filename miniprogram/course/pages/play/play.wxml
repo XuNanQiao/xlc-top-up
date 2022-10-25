@@ -1,0 +1,60 @@
+<!--course/pages/play/play.wxml-->
+<view class="classIntro">
+  <view wx:if="{{isLive =='true'}}">
+    <studioVhall vallConfigUrl="{{course.liveConfig}}" nickName="{{userInfo.nickName}}"></studioVhall>
+  </view>
+
+  <view wx:else>
+    <view id="player" class="palyBack" style="background:'url({{course.img}})';visibility:{{usebg?'visible':'hidden'}}">
+      <studioVhall wx:if="{{url!=''}}" vallConfigUrl="{{url}}" nickName="{{userInfo.nickName}}"></studioVhall>
+
+    </view>
+    <view class="tab" style="border-bottom: 1rpx solid #EEEEEE;">
+      <view class="item {{0==barTabCur?'tabValOn':''}}" data-index="{{0}}" bindtap="barSelect">直播课表</view>
+      <view class="item {{1==barTabCur?'tabValOn':''}}" data-index="{{1}}" bindtap="barSelect">老师答疑</view>
+    </view>
+    <view class="intro text-sm padding bg-white" style="display:{{barTabCur==0?'':'none'}}">
+      <view class="liveList text-grey">
+        <view class="content-title flex margin-tb-sm padding-tb-sm {{clickID==item.id?'onclick':''}}"
+          wx:for="{{course.playbacks}}" wx:key="index" data-id="{{item.id}}" bindtap="clicked">
+          <view class="livetitle text-cut basis-xl">
+            <text class="iconfont iconshiphuise margin-right-sm"> </text>
+            <text class="title-text">{{item.title}}</text>
+            <view wx:if="{{item.liveState!='直播尚未开始'}}" class="duration margin-left-xl text-gray">{{item.duration}}分钟
+            </view>
+          </view>
+          <view class="liveright">
+            <view class="righttext">
+              <!-- <navigator url="{{'/examPackage/pages/exam/CourseHomework/indexnew?examId='+item.id+'&courseType=1'}}"
+                class="classshow text">课堂练习</navigator> -->
+
+              <view wx:if="{{item.liveState=='直播尚未开始'}}" class="classhour">{{item.liveState}}</view>
+              <view wx:elif="{{item.liveState=='回放生成中'}}" class="classhour">{{item.liveState}}</view>
+              <navigator url="{{'./player?id='+item.id+'&liveid='+course.id+'&isLive='+true}}"
+                wx:elif="{{item.liveState=='正在直播'}}" class="classhour text-red">{{item.liveState}}</navigator>
+              <view data-itemid="{{item.id}}" data-courseid="{{course.id}}" bindtap="CheackIsAudition" wx:elif="{{item.trialVideoConfig}}"
+                class="classhour text" style="color:#F15817">免费试听</view>
+              <view data-itemid="{{item.id}}" data-courseid="{{course.id}}" bindtap="CheackIsSegment"
+                wx:elif="{{item.liveState=='观看重播'}}" class="classhour text">
+                {{item.liveState}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="questionTree" wx:if="{{questionTree != null}}" style="display:{{barTabCur==1?'':'none'}}">
+      <question-box :treelist="questionTree" bindreturnDate="returnDate"></question-box>
+      <view wx:if="{{commentCount >= commentList.length }}" class="more" bindtap="More">加载更多</view>
+      <view wx:else class="more">没有更多</view>
+      <view class="form">
+        <form bindsubmit="bindFormSubmit">
+          <textarea placeholder="请输入你的疑问" maxlength="-1" name="textarea" :value="question" bindblur="textareaVar"
+            :auto-focus="focus" />
+          <view class="button">
+            <button form-type="submit">提交</button>
+          </view>
+        </form>
+      </view>
+    </view>
+  </view>
+</view>

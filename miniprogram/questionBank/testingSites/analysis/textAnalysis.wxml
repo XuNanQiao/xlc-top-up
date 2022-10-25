@@ -1,0 +1,23 @@
+<view class="pannel">
+    <view class="title">
+        <view class="left fl">
+            考点讲解
+        </view>
+        <view class="img">
+            <image src="https://staticfile.xlcwx.com/Top-up-MiniApp/analysis/analysis-icon1.png" />
+        </view>
+    </view>
+    <view class="content">
+        <view class="item" wx:for="{{keyPoint.items}}" wx:key="index">
+            <view class="item-title">
+                {{index+1}}.{{item.title}}
+            </view>
+            <view class="text">
+                <rich-text nodes="{{item.content}}"></rich-text>
+            </view>
+        </view>
+    </view>
+    <navigator url="/questionBank/testingSites/question/index?id={{id}}" class="btn" wx:if="{{question.length>0}}">真题练习</navigator>
+    <view class="btn" wx:else bindtap="noQuestionCount">真题练习</view>
+
+</view>

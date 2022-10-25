@@ -1,0 +1,1 @@
+page{height:100%;background-color:#fff}.nickName{padding:20rpx 30rpx}.nickName .inputBox{border-bottom:1rpx solid #eee;height:75rpx;line-height:75rpx}.nickName .Determine{width:360rpx;height:70rpx;background:linear-gradient(90deg, #1f96f1 0%, #62b9fb 100%);border-radius:35rpx;font-size:26rpx;line-height:70rpx;text-align:center;margin:79rpx auto 0;color:#fff}

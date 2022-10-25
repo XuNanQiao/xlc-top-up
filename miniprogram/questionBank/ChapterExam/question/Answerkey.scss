@@ -1,0 +1,169 @@
+page {
+    background-color: #fff;
+    height: 100%;
+}
+
+.pannel {
+    .section {
+        background-color: #fff;
+
+        .block {
+            width: 690rpx;
+            height: 450rpx;
+            background: linear-gradient(0deg, rgba(252, 211, 141, 1) 0%, rgba(255, 227, 179, 1) 100%);
+            border-radius: 10rpx;
+            margin: auto;
+            margin-top: 10rpx;
+            overflow: hidden;
+            margin-bottom: 30rpx;
+
+            .img {
+                width: 238rpx;
+                height: 240rpx;
+                margin: auto;
+                margin-top: 22rpx;
+
+                image {
+                    width: 238rpx;
+                    height: 240rpx;
+
+                }
+            }
+
+            .text {
+                text-align: center;
+                font-size: 30rpx;
+                color: #F39805;
+                line-height: 30rpx;
+                margin-top: 24rpx;
+                margin-bottom: 35rpx;
+            }
+
+            .btn-list {
+                overflow: hidden;
+                width: 610rpx;
+                margin: auto;
+
+                .btn-item {
+                    width: 290rpx;
+                    height: 70rpx;
+                    border-radius: 35rpx;
+                    text-align: center;
+                    line-height: 68rpx;
+                    margin: auto;
+                    &:nth-child(1) {
+                        background-color: #fff;
+                        border: 1rpx solid rgba(240, 152, 4, 1);
+                        color: #F39805;
+                    }
+
+                    &:nth-child(2) {
+                        background-color: #56B658;
+                        border: 1rpx solid #56B658;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+
+        .answer {
+            .answer-title {
+                color: #343434;
+                font-size: 30rpx;
+                line-height: 30rpx;
+                padding: 30rpx;
+                padding-bottom: 40rpx;
+            }
+
+            .question-list {
+                overflow: hidden;
+                padding: 0 20rpx;
+
+                .question-item {
+                    width: 122rpx;
+                    height: 50rpx;
+                    background: rgba(255, 255, 255, 1);
+                    border: 1rpx solid #A8ACBE;
+                    border-radius: 4rpx;
+                    text-align: center;
+                    line-height: 48rpx;
+                    margin: 0 10rpx;
+                    color: #9A9A9A;
+                    position: relative;
+                    margin-bottom: 20rpx;
+
+                    .iconfont {
+                        font-size: 20rpx;
+                        color: #FD5451;
+                        position: absolute;
+                        right: 3rpx;
+                        top: 4rpx;
+                        line-height: 17rpx;
+                        display: none;
+                    }
+                }
+
+                .on {
+                    color: #00A2EA;
+                    border: 1rpx solid #00A2E9;
+                }
+
+                .booboo {
+                    .iconfont {
+                        display: block;
+                    }
+                }
+            }
+
+            .answer-number {
+                overflow: hidden;
+                width: 690rpx;
+                border-bottom: 1rpx solid #EEEEEE;
+                margin: auto;
+                padding: 30rpx 0;
+                padding-top: 10rpx;
+
+                .answer-number-item {
+                    font-size: 24rpx;
+                    color: #9A9A9A;
+                    margin:10rpx 30rpx 0rpx 0rpx;
+                    line-height: 24rpx;
+
+                    .red {
+                        color: #F00E0E;
+                        margin-left: 11rpx;
+                    }
+
+                    .blue {
+                        color: #00A2EA;
+                        margin-left: 11rpx;
+                    }
+                }
+            }
+
+            .answerKey {
+                padding: 30rpx;
+
+                .answerKey-title {
+                    color: #343434;
+                    font-size: 26rpx;
+                    line-height: 26rpx;
+                }
+
+                .answerKey-text {
+                    color: #666666;
+                    font-size: 24rpx;
+                    line-height: 37rpx;
+                    margin-top: 16rpx;
+                }
+            }
+        }
+    }
+
+    .line {
+        width: 750rpx;
+        height: 20rpx;
+        background: rgba(247, 247, 247, 1);
+
+    }
+}

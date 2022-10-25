@@ -1,0 +1,421 @@
+page {
+  background-color: #F7F7F7;
+}
+
+.home {
+  .vajra {
+    width: 100%;
+    background-color: #fff;
+    padding-top: 22rpx;
+
+    .indexRotation {
+      background-color: #fff;
+      margin: 0rpx 28rpx;
+      border-radius: 10rpx;
+      height: 270rpx;
+
+      .rotationItem {
+        width: 100%;
+        border-radius: 10rpx;
+        height: 100%;
+        background-color: #d3e974;
+
+        .rotationItemImg {
+          width: 100%;
+          height: 100%;
+
+        }
+      }
+
+      .wx-swiper-dots.wx-swiper-dots-horizontal {
+        margin-bottom: 2rpx;
+      }
+
+      .wx-swiper-dot {
+        width: 20rpx;
+        height: 4rpx;
+        background: rgba(255, 255, 255, 1);
+        border-radius: 2rpx;
+        display: inline-flex;
+        margin-left: 20rpx;
+        justify-content: space-between;
+
+      }
+
+      .wx-swiper-dot::before {
+        content: '';
+        flex-grow: 1;
+        background-color: #2357FF;
+        border-radius: 2rpx
+      }
+
+      .wx-swiper-dot-active::before {
+        background: #fff;
+      }
+    }
+
+    .indexList {
+      display: flex;
+      justify-content: space-between;
+      margin: 33rpx 90rpx 0rpx;
+
+      .listItem {
+        .itemImg {
+          width: 91rpx;
+          height: 91rpx;
+          box-shadow: 0rpx 0rpx 20rpx 0rpx rgba(0, 0, 0, 0.1);
+          display: block;
+          border-radius: 50%;
+        }
+
+        .itemText {
+          font-size: 28rpx;
+          line-height: 28rpx;
+          margin-top: 29rpx;
+          text-align: center;
+          font-family: Microsoft YaHei;
+          font-weight: 400;
+          color: rgba(51, 51, 51, 1);
+          line-height: 29rpx;
+        }
+      }
+    }
+
+    .indexExamList {
+      margin: 49rpx 29rpx 20rpx;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      .examItem {
+        width: 333rpx;
+        height: 131rpx;
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 0rpx 6rpx 24rpx 0rpx rgba(0, 0, 0, 0.1);
+        border-radius: 6rpx;
+        margin-bottom: 20rpx;
+        padding: 29rpx;
+
+        .examItemText {
+          float: left;
+
+          .examItemTitle {
+            line-height: 32rpx;
+            font-size: 32rpx;
+            font-family: Source Han Sans CN;
+            font-weight: 400;
+            color: rgba(51, 51, 51, 1);
+          }
+
+          .examItemRemarks {
+            margin-top: 21rpx;
+            line-height: 22rpx;
+            font-size: 22rpx;
+            font-family: Source Han Sans CN;
+            font-weight: 300;
+            color: rgba(102, 102, 102, 1);
+          }
+        }
+
+        .examItemImg {
+          float: right;
+          display: block;
+          width: 44rpx;
+          height: 55rpx;
+        }
+      }
+    }
+  }
+
+  .more {
+    float: right;
+    font-size: 26rpx;
+    line-height: 32rpx;
+    font-family: Source Han Sans CN;
+    font-weight: 300;
+    color: rgba(102, 102, 102, 1);
+  }
+
+  .courseTitle,
+  .liveTitle,
+  .activeTitle {
+    height: 80rpx;
+    padding-top: 32rpx;
+
+    .title {
+      font-size: 32rpx;
+      line-height: 32rpx;
+      font-family: Source Han Sans CN;
+      font-weight: bold;
+      color: rgba(34, 34, 34, 1);
+      float: left;
+    }
+
+
+  }
+
+  .freeLive {
+    margin-top: 20rpx;
+    background-color: #fff;
+    width: 100%;
+    padding: 0rpx 29rpx 0rpx;
+
+
+
+    .liveList {
+      .liveItem {
+        margin-top: 40rpx;
+        width: 690rpx;
+        height: 241rpx;
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 0rpx 0rpx 12rpx 0rpx rgba(0, 0, 0, 0.08);
+        border-radius: 20rpx;
+        padding-left: 40rpx;
+
+        .itemLeft {
+          float: left;
+          width: 424rpx;
+          display: flex;
+          justify-content: space-between;
+          flex-direction: column;
+          height: 100%;
+          padding-bottom: 35rpx;
+
+          .typeTime {
+            margin-top: 30rpx;
+            line-height: 34rpx;
+            height: 38rpx;
+
+            .type {
+              display: inline-block;
+              padding: 0 11rpx;
+              height: 34rpx;
+              text-align: center;
+              background: rgba(229, 235, 255, 1);
+              border-radius: 17rpx 0rpx 17rpx 0rpx;
+              font-size: 23rpx;
+              font-family: Source Han Sans CN;
+              font-weight: 400;
+              color: rgba(35, 87, 255, 1);
+            }
+
+            .appointment {
+              color: #1ab517 !important;
+              background: #d6f4d1 !important;
+            }
+
+            .playback {
+              color: rgba(255, 123, 35, 1);
+              background: rgba(255, 238, 229, 1);
+            }
+
+            .time {
+              margin-left: 32rpx;
+              display: inline-block;
+              font-size: 24rpx;
+              font-family: Source Han Sans CN;
+              font-weight: 300;
+              color: rgba(102, 102, 102, 1);
+            }
+          }
+
+          .title {
+            font-size: 30rpx;
+            font-family: Source Han Sans CN;
+            font-weight: 400;
+            color: rgba(51, 51, 51, 1);
+          }
+
+          .peopleNumber {
+            font-size: 24rpx;
+            font-family: Source Han Sans CN;
+            font-weight: 300;
+            color: rgba(102, 102, 102, 1);
+            margin-top: 27rpx;
+
+          }
+        }
+
+        .itemRight {
+          float: right;
+          margin-right: 15rpx;
+
+          .itemImg {
+            margin-top: 14rpx;
+            width: 161rpx;
+            height: 211rpx;
+            border-radius: 10rpx;
+          }
+
+          .state {
+            width: 180rpx;
+            height: 52rpx;
+            position: absolute;
+            margin-top: -39rpx;
+            margin-left: -5rpx;
+            background: rgba(35, 87, 255, 1);
+            border-radius: 20rpx 0rpx 20rpx 0rpx;
+            font-size: 23rpx;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .stateIcon {
+              display: inline-block;
+              margin-right: 13rpx;
+              line-height: 70rpx;
+            }
+
+            .text {
+              display: inline-block;
+            }
+          }
+        }
+
+      }
+    }
+
+  }
+
+  .newActive {
+    margin-top: 20rpx;
+    background-color: #fff;
+    width: 100%;
+    padding: 0 36rpx 30rpx 30rpx;
+
+    .activeTitle {
+      .title {
+        width: 160rpx;
+        height: 31rpx;
+      }
+    }
+
+    .activeList {
+      .activeItem {
+        height: 140rpx;
+        width: 100%;
+        margin: 26rpx 0 23rpx;
+
+        .activeImg {
+          width: 200rpx;
+          height: 140rpx;
+          border-radius: 6rpx;
+          float: left;
+        }
+
+        .activeDetail {
+          float: right;
+          width: 451rpx;
+
+          .activeItemTitle {
+            font-size: 32rpx;
+            font-family: Source Han Sans CN;
+            font-weight: 400;
+            color: rgba(51, 51, 51, 1);
+
+          }
+
+          .activePopup {
+            width: 451rpx;
+            height: 50rpx;
+            line-height: 50rpx;
+            text-align: center;
+            padding: 0rpx 20rpx;
+            margin-top: 21rpx;
+            background: rgba(247, 247, 247, 1);
+            border-radius: 6rpx;
+            font-size: 22rpx;
+            font-family: Source Han Sans CN;
+            font-weight: 300;
+            color: rgba(102, 102, 102, 1);
+
+          }
+        }
+      }
+    }
+  }
+
+  .course {
+    margin: 20rpx 0rpx;
+    background-color: #fff;
+    width: 100%;
+    padding: 0rpx 29rpx 40rpx;
+
+    .courseList {
+      .courseItem {
+        margin-top: 30rpx;
+        width: 100%;
+        height: 556rpx;
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 0rpx 0rpx 20rpx 0rpx rgba(0, 0, 0, 0.1);
+        border-radius: 20rpx;
+        padding: 27rpx 26rpx 0rpx 25rpx;
+
+        .courseItemImg {
+          width: 100%;
+          height: 364rpx;
+          border-radius: 10rpx;
+
+        }
+
+        .title {
+          margin-top: 39rpx;
+          font-size: 30rpx;
+          line-height: 30rpx;
+          font-family: Source Han Sans CN;
+          font-weight: 500;
+          color: rgba(34, 34, 34, 1);
+        }
+
+        .typePrice {
+          margin-top: 29rpx;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+
+          .type { 
+            width: 60rpx;
+            height: 28rpx;
+            line-height: 22rpx;
+            text-align: center;
+            border-radius: 6rpx;
+            font-size: 22rpx;
+            font-family: Source Han Sans CN;
+            font-weight: 300;
+            padding: 3rpx 0rpx;
+          }
+
+          .live {
+            color: rgba(0, 182, 77, 1);
+            border: 1rpx solid rgba(0, 182, 77, 1);
+          }
+
+          .oldPrice {
+            display: inline-block;
+            font-size: 22rpx;
+            font-family: Source Han Sans CN;
+            font-weight: 300;
+            text-decoration: line-through;
+            color: rgba(153, 153, 153, 1);
+          }
+
+          .noLive {
+            color: rgba(35, 87, 255, 1);
+            border: 1rpx solid rgba(35, 87, 255, 1)
+          }
+
+          .price {
+            margin-left: 9rpx;
+            display: inline-block;
+            font-size: 34rpx;
+            font-family: Source Han Sans CN;
+            font-weight: 500;
+            color: rgba(255, 126, 0, 1);
+          }
+        }
+      }
+    }
+  }
+}
